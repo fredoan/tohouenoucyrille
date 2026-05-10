@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>À propos — Cyrille Ghislain Tohouenou | Économiste, Leader, Entrepreneur</title>
+  <meta name="description" content="Biographie détaillée de Cyrille Ghislain Tohouenou : formation, parcours académique, compétences, engagements politiques et entrepreneuriaux au service du Bénin." />
+  <meta property="og:title" content="À propos de Cyrille Ghislain Tohouenou" />
+  <meta property="og:description" content="Économiste, expert en management international, conseiller communal, président du CONAJEB et chef d'entreprises." />
+  <meta property="og:image" content="phg.jpg" />
+  <meta property="og:url" content="https://www.cyriltohouenou.com/about.html" />
+  <link rel="preload" href="phg.jpg" as="image" />
+  <style>
+    /* Identique au style de l'index pour la cohérence, avec quelques ajouts spécifiques à la page */
+    :root {
+      --navy: #0a1628;
+      --deep-navy: #060e1c;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --ivory: #f7f3ec;
+      --text-muted: #9a8f7e;
+      --card-bg: rgba(14, 26, 50, 0.85);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--deep-navy);
+      color: var(--ivory);
+      overflow-x: hidden;
+    }
+    /* Loader */
+    #loader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--deep-navy);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+    .loader-sub {
+      font-size: 0.75rem; letter-spacing: 0.35em;
+      color: var(--text-muted); text-transform: uppercase;
+      margin-top: 0.8rem; opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .loader-bar-wrap {
+      width: 220px; height: 2px;
+      background: rgba(201,168,76,0.2);
+      margin-top: 2.5rem; overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%; background: var(--gold);
+      width: 0; animation: barFill 2s ease 0.8s forwards;
+    }
+    @keyframes barFill { to { width: 100%; } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(6, 14, 28, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted);
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; right: -100%;
+      width: 75%; height: 100vh; background: rgba(6,14,28,0.98);
+      backdrop-filter: blur(20px); flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+      z-index: 200; transition: right 0.4s ease;
+    }
+    .mobile-menu.open { right: 0; display: flex; }
+    .mobile-menu a { color: var(--ivory); font-size: 1.1rem; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; }
+    .close-menu { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--gold); cursor: pointer; }
+
+    /* Sections general */
+    section { padding: 6rem 5%; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; color: var(--ivory);
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    /* Hero About */
+    #about-hero {
+      min-height: 70vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #060e1c, #0d1f40);
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 4rem;
+      max-width: 1200px; margin: 0 auto;
+      padding: 8rem 5% 4rem; position: relative; z-index: 2;
+    }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300; line-height: 1.2;
+    }
+    .hero-text h1 span { color: var(--gold); font-weight: 600; }
+    .hero-text p {
+      font-size: 1rem; color: var(--text-muted); margin-top: 1.5rem;
+      line-height: 1.7; max-width: 500px;
+    }
+    .hero-photo img {
+      width: 100%; max-width: 400px;
+      border: 1px solid rgba(201,168,76,0.3);
+      filter: contrast(1.05);
+    }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .orb1 { width: 400px; height: 400px; background: rgba(201,168,76,0.06); top: -50px; right: -100px; animation: orbFloat 8s infinite; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+
+    /* Biographie détaillée */
+    #biographie {
+      background: var(--navy);
+    }
+    .bio-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .bio-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .bio-text strong { color: var(--gold-light); }
+    .bio-text .emoji { margin-right: 0.5rem; }
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2rem;
+    }
+    .info-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    .info-item {
+      display: flex; gap: 1rem; margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+    .info-icon { font-size: 1.2rem; color: var(--gold); min-width: 24px; text-align: center; }
+    .info-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .info-value { color: var(--ivory); font-size: 0.95rem; }
+
+    /* Formation & compétences */
+    #formation { background: var(--deep-navy); }
+    .formation-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .timeline-list {
+      border-left: 1px solid rgba(201,168,76,0.3);
+      padding-left: 2rem;
+      position: relative;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem;
+      top: 0.3rem;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .timeline-year {
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      color: var(--gold); margin-bottom: 0.2rem;
+      display: block;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--ivory);
+    }
+    .timeline-desc {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;
+    }
+    .competences-list {
+      display: flex; flex-wrap: wrap; gap: 0.7rem;
+    }
+    .tag {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .tag:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+
+    /* Philosophie */
+    #philosophie {
+      background: var(--navy);
+      text-align: center;
+    }
+    .quote-block {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 0 2rem;
+    }
+    .quote-block::before {
+      content: '“';
+      font-size: 8rem;
+      color: var(--gold);
+      opacity: 0.1;
+      position: absolute;
+      top: -4rem;
+      left: -1rem;
+      font-style: normal;
+    }
+
+    /* CTA */
+    #cta {
+      background: var(--deep-navy);
+      text-align: center;
+    }
+    .btn-primary, .btn-outline {
+      padding: 0.9rem 2.2rem;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none; transition: all 0.3s;
+      display: inline-block; margin: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,168,76,0.3); }
+    .btn-outline {
+      border: 1px solid rgba(201,168,76,0.5); color: var(--gold);
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-3px); }
+
+    /* Footer */
+    footer {
+      background: #03080f; padding: 3rem 5%;
+      text-align: center; border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .footer-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem; border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); text-decoration: none;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .footer-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: rgba(154,143,126,0.5); margin-top: 1rem; }
+
+    /* WhatsApp floating */
+    .whatsapp-float {
+      position: fixed; bottom: 25px; right: 25px;
+      background: #25D366; color: white; border-radius: 50%;
+      width: 60px; height: 60px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      z-index: 999; transition: transform 0.3s, box-shadow 0.3s;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 30px rgba(37,211,102,0.4); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity:0; transform:translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .reveal-right { opacity:0; transform:translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { order: -1; }
+      .bio-grid, .formation-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-logo">C.G. TOHOUENOU</div>
+  <div class="loader-sub">À propos 🧭</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou%2C%20je%20viens%20de%20visiter%20votre%20page%20%C3%80%20propos" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  💬
+</a>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">CGT</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html" style="color:var(--gold)">À propos</a></li>
+    <li><a href="parcours.html">Parcours</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-menu" onclick="toggleMenu()">✕</span>
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="about.html" onclick="toggleMenu()">À propos</a>
+  <a href="parcours.html" onclick="toggleMenu()">Parcours</a>
+  <a href="galerie.html" onclick="toggleMenu()">Galerie</a>
+  <a href="vision.html" onclick="toggleMenu()">Vision</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO ABOUT -->
+<section id="about-hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-grid">
+    <div class="hero-text reveal-left">
+      <span class="section-eyebrow">Qui suis-je</span>
+      <h1>Cyrille Ghislain <span>Tohouenou</span> 🎯</h1>
+      <p>
+        Économiste béninois, expert en management des projets internationaux, conseiller communal, président du CONAJEB et chef d'entreprises. 
+        Un parcours d'excellence au service du Bénin et de sa jeunesse.
+      </p>
+    </div>
+    <div class="hero-photo reveal-right">
+      <img src="phg.jpg" alt="Cyrille Ghislain Tohouenou" loading="eager" onerror="this.style.background='#1e3a6e'; this.style.minHeight='300px'" />
+    </div>
+  </div>
+</section>
+
+<!-- BIOGRAPHIE DÉTAILLÉE -->
+<section id="biographie">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Biographie</span>
+    <h2 class="section-title">Un leader <em>polyvalent</em> ✨</h2>
+  </div>
+  <div class="bio-grid">
+    <div class="bio-text reveal-left">
+      <p>
+        <strong>🎓 Parcours académique d’exception</strong><br/>
+        Titulaire d’un Master 2 en Management des Projets Internationaux de l’<strong>Université Senghor d’Alexandrie</strong> (Égypte), 
+        Cyrille Ghislain Tohouenou est également diplômé de la Faculté des Sciences Économiques et de Gestion (FASEG) de l’Université d’Abomey-Calavi. 
+        Son socle en analyse des politiques du développement et en banque-finance lui confère une vision économique solide.
+      </p>
+      <p>
+        <strong>🏛️ Engagement public et gouvernance locale</strong><br/>
+        Conseiller communal à <strong>Klouékanmè</strong> (Couffo) depuis 2020, il préside la Commission Coopération et Relations avec les Institutions. 
+        Il est également le <strong>Président du Conseil National des Jeunes Élus du Bénin (CONAJEB)</strong>, où il milite pour une décentralisation effective et une meilleure inclusion des jeunes dans la vie politique.
+      </p>
+      <p>
+        <strong>💼 Entrepreneuriat et innovation</strong><br/>
+        Fondateur du <strong>groupe NOVAFRIK</strong> (conseil, immobilier) et actuel Directeur Général d’<strong>AFRICAXI</strong>, 
+        il pilote des initiatives de digitalisation des marchés traditionnels et le développement de solutions e-commerce pour l’Afrique de l’Ouest. 
+        Son leadership a permis d’accompagner de nombreuses PME et startups béninoises.
+      </p>
+      <p>
+        <strong>🌍 Vision panafricaine</strong><br/>
+        Point focal de l’Union Panafricaine de la Jeunesse (UPJ) et membre actif de la <strong>FEROW</strong> (mouvement de soutien à Romuald Wadagni), 
+        il participe à la refondation des organisations de jeunesse africaines et aux grands rendez-vous internationaux (ONU, Union Africaine, CEA).
+      </p>
+    </div>
+    <div class="info-card reveal-right">
+      <h3>Informations clés</h3>
+      <div class="info-item">
+        <div class="info-icon">📅</div>
+        <div>
+          <div class="info-label">Âge / Né vers</div>
+          <div class="info-value">1987 — ~39 ans</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Origine</div>
+          <div class="info-value">Klouékanmè, Couffo 🇧🇯</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🎓</div>
+        <div>
+          <div class="info-label">Formation</div>
+          <div class="info-value">Université Senghor (Master 2) <br/> FASEG-UAC (Licences)</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💼</div>
+        <div>
+          <div class="info-label">Fonctions</div>
+          <div class="info-value">DG AFRICAXI · Conseiller communal · Président CONAJEB</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⚖️</div>
+        <div>
+          <div class="info-label">Parti politique</div>
+          <div class="info-value">Union Progressiste le Renouveau (UPR) · Membre du Bureau Politique</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div>
+          <div class="info-label">Langues</div>
+          <div class="info-value">Français, Anglais, Fon, Adja, Mina, Goun</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION & COMPÉTENCES -->
+<section id="formation">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Formation & Expertise</span>
+    <h2 class="section-title">Un savoir au service <em>du développement</em> 📚</h2>
+  </div>
+  <div class="formation-grid">
+    <!-- Colonne formation académique -->
+    <div class="reveal-left">
+      <h3 style="color:var(--gold-light); font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:2rem;">Diplômes & Certifications</h3>
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <span class="timeline-year">2022</span>
+          <h4 class="timeline-title">Master 2 en Management des Projets Internationaux</h4>
+          <p class="timeline-desc">Université Senghor d’Alexandrie, Égypte</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2012</span>
+          <h4 class="timeline-title">Licence Pro en Analyse et Politique du Développement</h4>
+          <p class="timeline-desc">FASEG, Université d’Abomey-Calavi</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2010</span>
+          <h4 class="timeline-title">Licence Pro en Banque, Finance et Assurance</h4>
+          <p class="timeline-desc">UPIB, Cotonou</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Divers</span>
+          <h4 class="timeline-title">Formations continues</h4>
+          <p class="timeline-desc">Politiques publiques, innovation, transformation digitale</p>
+        </div>
+      </div>
+    </div>
+    <!-- Colonne compétences -->
+    <div class="reveal-right">
+      <h3 style="color:var(--gold-light); font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:2rem;">Compétences clés</h3>
+      <div class="competences-list">
+        <span class="tag">Gouvernance publique</span>
+        <span class="tag">Analyse économique</span>
+        <span class="tag">Management de projets</span>
+        <span class="tag">Mobilisation de ressources</span>
+        <span class="tag">Partenariats internationaux</span>
+        <span class="tag">Transformation digitale</span>
+        <span class="tag">Communication institutionnelle</span>
+        <span class="tag">Leadership d’équipe</span>
+        <span class="tag">Finance locale</span>
+        <span class="tag">Décentralisation</span>
+        <span class="tag">Entrepreneuriat</span>
+        <span class="tag">Diplomatie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section id="philosophie">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Philosophie</span>
+    <h2 class="section-title">Ce qui <em>m'anime</em> 🔥</h2>
+  </div>
+  <div class="quote-block reveal">
+    « Ce n’est pas le vent qui décide de votre destination, c’est l’orientation que vous donnez à votre voile. » ⛵️<br/>
+    <span style="display:block; margin-top:1.5rem; font-size:1rem; font-style:normal; color:var(--text-muted);">
+      — Cyrille Ghislain Tohouenou
+    </span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="reveal">
+    <p style="font-size:1.2rem; color:var(--ivory); margin-bottom:2rem;">Envie d’en savoir plus sur mon parcours professionnel ?</p>
+    <a href="parcours.html" class="btn-primary">📋 Voir le parcours complet</a>
+    <a href="contact.html" class="btn-outline">📩 Me contacter</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold);">Cyrille Ghislain Tohouenou</div>
+  <p style="color:var(--text-muted); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; margin-top:0.5rem;">Économiste · Expert International · Leader Politique</p>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="parcours.html">Parcours</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="vision.html">Vision</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-contact-btns">
+    <a href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+    <a href="https://wa.me/2290148715375?text=Bonjour%20l'%C3%A9quipe%20Novasoir" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
+  </div>
+  <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir.</p>
+</footer>
+
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 2300);
+  });
+
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach(el => observer.observe(el));
+
+  // Parallax orb
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    const orb = document.querySelector('.orb1');
+    if (orb) orb.style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+
+</body>
+</html>

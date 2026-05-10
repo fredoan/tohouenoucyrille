@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parcours — Cyrille Ghislain Tohouenou | Expérience, CV, Compétences</title>
+  <meta name="description" content="Parcours professionnel complet de Cyrille Ghislain Tohouenou : économiste, expert en management international, conseiller communal, DG AFRICAXI, président CONAJEB." />
+  <meta property="og:title" content="Parcours de Cyrille Ghislain Tohouenou" />
+  <meta property="og:description" content="De Caritas Bénin à la direction d'AFRICAXI, en passant par le Ministère des Sports et la Mairie de Klouékanmè, découvrez un parcours d'exception." />
+  <meta property="og:image" content="phh.jpg" />
+  <meta property="og:url" content="https://www.cyriltohouenou.com/parcours.html" />
+  <link rel="preload" href="phh.jpg" as="image" />
+  <style>
+    :root {
+      --navy: #0a1628;
+      --deep-navy: #060e1c;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --ivory: #f7f3ec;
+      --text-muted: #9a8f7e;
+      --card-bg: rgba(14,26,50,0.85);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--deep-navy);
+      color: var(--ivory);
+      overflow-x: hidden;
+    }
+    /* Loader */
+    #loader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--deep-navy);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+    .loader-sub {
+      font-size: 0.75rem; letter-spacing: 0.35em;
+      color: var(--text-muted); text-transform: uppercase;
+      margin-top: 0.8rem; opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .loader-bar-wrap {
+      width: 220px; height: 2px;
+      background: rgba(201,168,76,0.2);
+      margin-top: 2.5rem; overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%; background: var(--gold);
+      width: 0; animation: barFill 2s ease 0.8s forwards;
+    }
+    @keyframes barFill { to { width: 100%; } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(6,14,28,0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted);
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; right: -100%;
+      width: 75%; height: 100vh; background: rgba(6,14,28,0.98);
+      backdrop-filter: blur(20px); flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+      z-index: 200; transition: right 0.4s ease;
+    }
+    .mobile-menu.open { right: 0; display: flex; }
+    .mobile-menu a { color: var(--ivory); font-size: 1.1rem; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; }
+    .close-menu { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--gold); cursor: pointer; }
+
+    /* Hero */
+    #parcours-hero {
+      min-height: 50vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #060e1c, #0d1f40);
+      position: relative; overflow: hidden;
+    }
+    .hero-content {
+      max-width: 900px; margin: 0 auto;
+      padding: 8rem 5% 3rem;
+      text-align: center; position: relative; z-index: 2;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+    }
+    .hero-content h1 span { color: var(--gold); font-weight: 600; }
+    .hero-content p {
+      color: var(--text-muted); max-width: 600px;
+      margin: 1.5rem auto 0;
+      line-height: 1.7;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+    }
+    .orb1 { width: 400px; height: 400px; background: rgba(201,168,76,0.05); top: -100px; right: -100px; animation: orbFloat 8s infinite; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+
+    /* Timeline */
+    section { padding: 5rem 5%; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; color: var(--ivory);
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    .timeline {
+      max-width: 1000px; margin: 0 auto;
+    }
+    .timeline-item {
+      display: flex; gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .timeline-item:nth-child(odd) { transform: translateX(-30px); }
+    .timeline-item:nth-child(even) { transform: translateX(30px); }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+    .timeline-year {
+      min-width: 120px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+    .timeline-year small {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 1.8rem;
+      flex: 1;
+      transition: border-color 0.3s;
+    }
+    .timeline-content:hover { border-color: rgba(201,168,76,0.4); }
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-org {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* Compétences & Langues */
+    #competences { background: var(--deep-navy); }
+    .competences-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .competences-grid h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+    }
+    .tag-list {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .tag {
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    .tag:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+    .langue-item {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .langue-nom {
+      width: 100px;
+      font-weight: 500;
+    }
+    .langue-niveau {
+      height: 6px;
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .langue-niveau span {
+      position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+    }
+
+    /* CTA */
+    #cta {
+      background: var(--navy);
+      text-align: center;
+    }
+    .btn-primary, .btn-outline {
+      padding: 0.9rem 2.2rem;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none; transition: all 0.3s;
+      display: inline-block; margin: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,168,76,0.3); }
+    .btn-outline {
+      border: 1px solid rgba(201,168,76,0.5); color: var(--gold);
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-3px); }
+
+    /* Footer */
+    footer {
+      background: #03080f; padding: 3rem 5%;
+      text-align: center; border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .footer-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem; border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); text-decoration: none;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .footer-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: rgba(154,143,126,0.5); margin-top: 1rem; }
+
+    /* WhatsApp floating */
+    .whatsapp-float {
+      position: fixed; bottom: 25px; right: 25px;
+      background: #25D366; color: white; border-radius: 50%;
+      width: 60px; height: 60px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      z-index: 999; transition: transform 0.3s, box-shadow 0.3s;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 30px rgba(37,211,102,0.4); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity:0; transform:translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .reveal-right { opacity:0; transform:translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+    @media (max-width: 1024px) {
+      .timeline-item { flex-direction: column; gap: 0.5rem; }
+      .timeline-year { text-align: left; }
+      .competences-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-logo">C.G. TOHOUENOU</div>
+  <div class="loader-sub">Parcours 📋</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou%2C%20je%20m%27int%C3%A9resse%20%C3%A0%20votre%20parcours" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">CGT</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="parcours.html" style="color:var(--gold)">Parcours</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-menu" onclick="toggleMenu()">✕</span>
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="about.html" onclick="toggleMenu()">À propos</a>
+  <a href="parcours.html" onclick="toggleMenu()">Parcours</a>
+  <a href="galerie.html" onclick="toggleMenu()">Galerie</a>
+  <a href="vision.html" onclick="toggleMenu()">Vision</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- Hero -->
+<section id="parcours-hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-content reveal">
+    <span class="section-eyebrow">Trajectoire</span>
+    <h1>Un <span>parcours</span> d’exception</h1>
+    <p>De l’Université d’Abomey-Calavi à la direction générale d’AFRICAXI, en passant par les Ministères et la Mairie de Klouékanmè, chaque étape a forgé un leader résolument tourné vers l’action et le développement. 🇧🇯🚀</p>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" style="background:var(--navy)">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Expérience professionnelle</span>
+    <h2 class="section-title">Chronologie <em>détaillée</em></h2>
+  </div>
+  <div class="timeline">
+    <!-- Item 1 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2024<small>à ce jour</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Directeur Général</div>
+        <div class="timeline-org">AFRICAXI — Lomé, Togo / Bénin (depuis mars 2026)</div>
+        <div class="timeline-desc">Pilotage stratégique du groupe (digital, e-commerce, formation, conseil, commerce général). Expansion régionale et digitalisation des marchés traditionnels. 🚀</div>
+      </div>
+    </div>
+    <!-- Item 2 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2021<small>à sept. 2023</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Assistant du Ministre des Sports</div>
+        <div class="timeline-org">Ministère des Sports — Cotonou, Bénin</div>
+        <div class="timeline-desc">Supervision des programmes nationaux (classes sportives, championnats scolaires) et coordination du Championnat du Monde de Pétanque ayant mené à des performances historiques. 🏆</div>
+      </div>
+    </div>
+    <!-- Item 3 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2021<small>à ce jour</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Président du CONAJEB & Point focal UPJ</div>
+        <div class="timeline-org">Conseil National des Jeunes Élus du Bénin</div>
+        <div class="timeline-desc">Coordination nationale des jeunes élus locaux, représentation internationale (ONU, CEA, UA), renforcement du leadership et de la décentralisation. 🌍</div>
+      </div>
+    </div>
+    <!-- Item 4 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2020<small>à ce jour</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Conseiller Communal</div>
+        <div class="timeline-org">Commune de Klouékanmè — Couffo</div>
+        <div class="timeline-desc">Président de la Commission Coopération et Relations Institutionnelles. Supervision des finances locales, mobilisation des ressources et développement économique du territoire. 🏛️</div>
+      </div>
+    </div>
+    <!-- Item 5 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2017<small>à 2020</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Directeur Général</div>
+        <div class="timeline-org">Radio COUFFO FM — Adjahonney, Klouékanmè</div>
+        <div class="timeline-desc">Management de 22 journalistes et techniciens, signature de plus de 150 contrats, développement de partenariats et organisation de forums radiophoniques. 🎙️</div>
+      </div>
+    </div>
+    <!-- Item 6 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2014<small>à 2016</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Chargé des Multimédias et Réseaux sociaux</div>
+        <div class="timeline-org">Ministère de la Communication et des TIC — Bénin</div>
+        <div class="timeline-desc">Gestion des plateformes numériques gouvernementales, stratégie de communication digitale, production de contenus multimédias. 📱</div>
+      </div>
+    </div>
+    <!-- Item 7 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2013<small>à 2015</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Assistant du Responsable d’Études et d’Exécution de Projets Humanitaires</div>
+        <div class="timeline-org">Caritas Bénin</div>
+        <div class="timeline-desc">Appui à la conception et suivi de projets humanitaires, coordination des interventions d’urgence (inondations 2013), mobilisation de ressources pour les populations vulnérables. 🤲</div>
+      </div>
+    </div>
+    <!-- Item 8 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2012<small>(stage)</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Stagiaire — Direction Générale des Politiques de Développement</div>
+        <div class="timeline-org">Ministère du Développement et du Plan — Bénin</div>
+        <div class="timeline-desc">Analyse et suivi de la Stratégie de Croissance pour la Réduction de la Pauvreté (SCRP), collecte de données socio-économiques. 📊</div>
+      </div>
+    </div>
+    <!-- Item 9 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2009<small>à 2012</small></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Responsable étudiant</div>
+        <div class="timeline-org">Fédération Nationale des Étudiants du Bénin (FNEB)</div>
+        <div class="timeline-desc">Coordination de projets estudiantins, participation au Forum social mondial de Dakar 2011, encadrement d’une délégation de 25 étudiants. 🎓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compétences & Langues -->
+<section id="competences">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Atouts</span>
+    <h2 class="section-title">Compétences <em>& Langues</em></h2>
+  </div>
+  <div class="competences-grid">
+    <div class="reveal-left">
+      <h3>Compétences transversales</h3>
+      <div class="tag-list">
+        <span class="tag">Gouvernance publique</span>
+        <span class="tag">Analyse économique</span>
+        <span class="tag">Management de projets</span>
+        <span class="tag">Mobilisation de ressources</span>
+        <span class="tag">Partenariats internationaux</span>
+        <span class="tag">Transformation digitale</span>
+        <span class="tag">Communication institutionnelle</span>
+        <span class="tag">Leadership</span>
+        <span class="tag">Finance locale</span>
+        <span class="tag">Décentralisation</span>
+        <span class="tag">Entrepreneuriat</span>
+        <span class="tag">Suivi-évaluation</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <h3>Langues maîtrisées</h3>
+      <div class="langue-item">
+        <span class="langue-nom">Français</span>
+        <div class="langue-niveau"><span style="width:100%"></span></div>
+        <small style="color:var(--text-muted)">Natif</small>
+      </div>
+      <div class="langue-item">
+        <span class="langue-nom">Anglais</span>
+        <div class="langue-niveau"><span style="width:70%"></span></div>
+        <small style="color:var(--text-muted)">Courant</small>
+      </div>
+      <div class="langue-item">
+        <span class="langue-nom">Fon</span>
+        <div class="langue-niveau"><span style="width:90%"></span></div>
+        <small style="color:var(--text-muted)">Courant</small>
+      </div>
+      <div class="langue-item">
+        <span class="langue-nom">Adja</span>
+        <div class="langue-niveau"><span style="width:85%"></span></div>
+        <small style="color:var(--text-muted)">Courant</small>
+      </div>
+      <div class="langue-item">
+        <span class="langue-nom">Mina / Goun</span>
+        <div class="langue-niveau"><span style="width:75%"></span></div>
+        <small style="color:var(--text-muted)">Bon</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="reveal">
+    <p style="font-size:1.2rem; color:var(--ivory); margin-bottom:2rem;">📅 Curieux d’en voir plus ? Découvrez mes moments forts en images.</p>
+    <a href="galerie.html" class="btn-primary">🖼️ Voir la galerie</a>
+    <a href="contact.html" class="btn-outline">📩 Me contacter</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold);">Cyrille Ghislain Tohouenou</div>
+  <p style="color:var(--text-muted); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; margin-top:0.5rem;">Économiste · Expert International · Leader Politique</p>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="parcours.html">Parcours</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="vision.html">Vision</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-contact-btns">
+    <a href="https://wa.me/2290164071465" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+    <a href="https://wa.me/2290148715375" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
+  </div>
+  <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir.</p>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 2300);
+  });
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach(el => observer.observe(el));
+
+  // Parallax
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    const orb = document.querySelector('.orb1');
+    if (orb) orb.style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+
+</body>
+</html>
