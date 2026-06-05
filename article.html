@@ -4,9 +4,21 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title id="pageTitle">Article — Cyrille Ghislain Tohouenou</title>
-  <meta name="description" content="Article de Cyrille Ghislain Tohouenou"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Lisez les articles et actualités de Cyrille Ghislain Tohouenou sur la gouvernance, l'économie, la jeunesse et le développement du Bénin."/>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" id="canonicalLink" href="https://cyrilletohouenou.com/article.html">
+  <meta property="og:title" id="ogTitle" content="Article — Cyrille Ghislain Tohouenou">
+  <meta property="og:description" id="ogDescription" content="Lisez les articles et actualités de Cyrille Ghislain Tohouenou.">
+  <meta property="og:image" id="ogImage" content="https://cyrilletohouenou.com/pha.jpg">
+  <meta property="og:url" id="ogUrl" content="https://cyrilletohouenou.com/article.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="Article — Cyrille Ghislain Tohouenou">
+  <meta name="twitter:description" id="twitterDesc" content="Lisez les articles et actualités de Cyrille Ghislain Tohouenou.">
+  <meta name="twitter:image" id="twitterImage" content="https://cyrilletohouenou.com/pha.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+  /* ===== VOTRE STYLE EXISTANT (INCHANGÉ) ===== */
   :root {
     --royal:       #1a3a8f;
     --royal-dark:  #0f2460;
@@ -185,8 +197,8 @@
 <!-- Barre de lecture -->
 <div id="readProgress"></div>
 
-<!-- WA -->
-<a class="wa-float" href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou" target="_blank" rel="noopener">💬</a>
+<!-- WA (numéro uniformisé) -->
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -277,7 +289,7 @@
     <a href="contact.html">Contact</a>
   </div>
   <div class="footer-btns">
-    <a href="https://wa.me/2290164071465" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+    <a href="https://wa.me/2290167549826" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
     <a href="https://wa.me/2290148715375" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
   </div>
   <p class="footer-copy">© 2026 — Conçu avec ❤️ par Novasoir</p>
@@ -314,6 +326,13 @@
     return Math.max(1, Math.ceil(words/200));
   }
 
+  // Extraire un extrait du contenu (150 caractères) pour la meta description
+  function extractExcerpt(content, maxLength = 150) {
+    const text = content.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength - 3) + '...';
+  }
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   if (!id) { window.location.href = 'blog.html'; }
@@ -337,14 +356,38 @@
   }
 
   function render(art) {
-    /* Titre & meta */
-    document.title = art.titre + ' — Cyrille Ghislain Tohouenou';
+    // Mise à jour des balises SEO dynamiques
+    const articleUrl = `https://cyrilletohouenou.com/article.html?id=${art.id}`;
+    const excerpt = extractExcerpt(art.contenu || '', 155);
+    const imageUrl = art.imageUrl ? `https://cyrilletohouenou.com/${art.imageUrl}` : 'https://cyrilletohouenou.com/pha.jpg';
+    
+    // Titre de la page
+    document.title = `${art.titre} — Cyrille Ghislain Tohouenou`;
     document.getElementById('pageTitle').textContent = document.title;
-
+    
+    // Meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', excerpt);
+    
+    // Canonical
+    const canonical = document.getElementById('canonicalLink');
+    if (canonical) canonical.setAttribute('href', articleUrl);
+    
+    // Open Graph
+    document.getElementById('ogTitle').setAttribute('content', `${art.titre} — Cyrille Ghislain Tohouenou`);
+    document.getElementById('ogDescription').setAttribute('content', excerpt);
+    document.getElementById('ogImage').setAttribute('content', imageUrl);
+    document.getElementById('ogUrl').setAttribute('content', articleUrl);
+    
+    // Twitter Card
+    document.getElementById('twitterTitle').setAttribute('content', `${art.titre} — Cyrille Ghislain Tohouenou`);
+    document.getElementById('twitterDesc').setAttribute('content', excerpt);
+    document.getElementById('twitterImage').setAttribute('content', imageUrl);
+    
     /* Cover */
     const cw = document.getElementById('coverWrap');
     cw.innerHTML = art.imageUrl
-      ? `<img class="art-cover" src="${art.imageUrl}" alt="${art.titre}"/>`
+      ? `<img class="art-cover" src="${art.imageUrl}" alt="${art.titre} — illustration" loading="lazy"/>`
       : `<div class="cover-placeholder">📰</div>`;
 
     /* Fil d'Ariane & catégorie */
@@ -360,22 +403,82 @@
     document.getElementById('artReadTime').textContent = readTime(art.contenu);
 
     /* Contenu */
-    const content = document.getElementById('artContent');
+    const contentDiv = document.getElementById('artContent');
     if ((art.contenu||'').includes('<')) {
-      content.innerHTML = art.contenu;
+      contentDiv.innerHTML = art.contenu;
     } else {
-      content.innerHTML = '<p>' + (art.contenu||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>') + '</p>';
+      contentDiv.innerHTML = '<p>' + (art.contenu||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>') + '</p>';
     }
 
-    /* Partage */
-    const url   = encodeURIComponent(window.location.href);
-    const titre = encodeURIComponent(art.titre);
-    document.getElementById('shareWA').href = `https://api.whatsapp.com/send?text=${titre}%20${url}`;
-    document.getElementById('shareFB').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    /* Partage WhatsApp avec le bon numéro */
+    const whatsappUrl = `https://wa.me/2290167549826?text=${encodeURIComponent(art.titre + ' — ' + articleUrl)}`;
+    document.getElementById('shareWA').href = whatsappUrl;
+    document.getElementById('shareFB').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+
+    /* Injection des données structurées JSON-LD */
+    injectJsonLd(art, articleUrl, imageUrl, excerpt);
 
     /* Afficher */
     document.getElementById('loadingWrap').style.display = 'none';
     document.getElementById('articleWrap').style.display = 'block';
+  }
+
+  function injectJsonLd(art, articleUrl, imageUrl, excerpt) {
+    // Supprimer les anciens scripts JSON-LD pour éviter les doublons
+    const oldScripts = document.querySelectorAll('script[data-ld="article"]');
+    oldScripts.forEach(s => s.remove());
+    
+    const datePublished = art.date ? (art.date.toDate ? art.date.toDate().toISOString() : new Date(art.date).toISOString()) : new Date().toISOString();
+    const dateModified = datePublished;
+    
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": art.titre,
+      "description": excerpt,
+      "image": imageUrl,
+      "datePublished": datePublished,
+      "dateModified": dateModified,
+      "author": {
+        "@type": "Person",
+        "name": art.auteur || "Cyrille Ghislain Tohouenou",
+        "url": "https://cyrilletohouenou.com/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Cyrille Ghislain Tohouenou",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyrilletohouenou.com/pha.jpg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": articleUrl
+      }
+    };
+    
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cyrilletohouenou.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Actualités", "item": "https://cyrilletohouenou.com/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": art.titre, "item": articleUrl }
+      ]
+    };
+    
+    const script1 = document.createElement('script');
+    script1.type = 'application/ld+json';
+    script1.setAttribute('data-ld', 'article');
+    script1.textContent = JSON.stringify(articleSchema);
+    document.head.appendChild(script1);
+    
+    const script2 = document.createElement('script');
+    script2.type = 'application/ld+json';
+    script2.setAttribute('data-ld', 'breadcrumb');
+    script2.textContent = JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(script2);
   }
 
   async function loadRelated(cat, excludeId) {
@@ -415,7 +518,6 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll',()=>{
     navbar.classList.toggle('scrolled',window.scrollY>60);
-    /* Barre de progression lecture */
     const wrap = document.getElementById('articleWrap');
     if (wrap && wrap.style.display!=='none') {
       const total = document.body.scrollHeight - window.innerHeight;
