@@ -4,9 +4,18 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>À propos — Honorable Cyrille Ghislain Tohouenou | Économiste & Expert en Management</title>
-  <meta name="description" content="Biographie complète de Cyrille Ghislain Tohouenou : économiste, expert en management des projets internationaux, DG AFRICAXI, Président CONAJEB, Conseiller Communal."/>
+  <meta name="description" content="Biographie complète de Cyrille Ghislain Tohouenou : économiste, expert en management des projets internationaux, DG AFRICAXI, Président CONAJEB, Conseiller Communal. Découvrez son parcours et ses engagements pour le Bénin."/>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cyrilletohouenou.com/about.html">
+  <meta property="og:title" content="À propos — Cyrille Ghislain Tohouenou | Économiste & Leader">
+  <meta property="og:description" content="Biographie complète de Cyrille Ghislain Tohouenou : économiste, expert en management international, DG AFRICAXI, Président CONAJEB.">
+  <meta property="og:image" content="https://cyrilletohouenou.com/phg.jpg">
+  <meta property="og:url" content="https://cyrilletohouenou.com/about.html">
+  <meta property="og:type" content="profile">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+  /* ===== VOTRE STYLE EXISTANT (INCHANGÉ) ===== */
   :root {
     --royal:       #1a3a8f;
     --royal-dark:  #0f2460;
@@ -89,14 +98,13 @@
   .wa-float:hover { transform:scale(1.1); }
   @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-  /* ═══ HERO ═══ */
+  /* HERO */
   #about-hero { background:var(--royal-dark); padding-top:var(--nav-h); position:relative; overflow:hidden; }
   .hero-pattern { position:absolute; inset:0; pointer-events:none; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px),repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px); }
   .hero-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
   .g1 { width:clamp(240px,38vw,480px); height:clamp(240px,38vw,480px); background:rgba(240,152,32,.1); top:-15%; right:-8%; animation:gfloat 9s ease-in-out infinite; }
   .g2 { width:clamp(180px,28vw,360px); height:clamp(180px,28vw,360px); background:rgba(43,82,196,.28); bottom:-10%; left:-6%; animation:gfloat 12s ease-in-out infinite reverse; }
   @keyframes gfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-34px)} }
-
   .hero-inner { position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:5rem 5%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
   .hero-text { opacity:0; animation:hSlideL 1s ease .5s forwards; }
   @keyframes hSlideL { from{opacity:0;transform:translateX(-44px)} to{opacity:1;transform:none} }
@@ -108,8 +116,6 @@
   .hero-titre { font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,1.8vw,1.4rem); font-style:italic; color:rgba(255,255,255,.75); margin-bottom:1.5rem; line-height:1.5; }
   .hero-tags { display:flex; flex-wrap:wrap; gap:.5rem; }
   .hero-tag { padding:.3rem .85rem; border:1px solid rgba(240,152,32,.4); color:var(--orange-pale); font-size:.62rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
-
-  /* Photo hero */
   .hero-photo { display:flex; justify-content:center; opacity:0; animation:hSlideR 1s ease .7s forwards; }
   @keyframes hSlideR { from{opacity:0;transform:translateX(44px)} to{opacity:1;transform:none} }
   .photo-frame { position:relative; width:min(320px,78vw); }
@@ -126,56 +132,23 @@
   .corner.tl { top:-1px; left:-1px; border-top:3px solid var(--orange-vif); border-left:3px solid var(--orange-vif); }
   .corner.br { bottom:-1px; right:-1px; border-bottom:3px solid var(--orange-vif); border-right:3px solid var(--orange-vif); }
 
-  /* ═══ PROFIL COMPLET ═══ */
+  /* PROFIL COMPLET */
   #profil { background:var(--white); }
   .profil-grid { display:grid; grid-template-columns:1fr 340px; gap:4rem; align-items:start; }
-
-  /* Texte biographie */
-  .bio-intro {
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(1.1rem,2vw,1.35rem);
-    font-style:italic; color:var(--royal-dark);
-    line-height:1.75; margin-bottom:2rem;
-    padding-left:1.5rem;
-    border-left:4px solid var(--orange);
-  }
+  .bio-intro { font-family:'Cormorant Garamond',serif; font-size:clamp(1.1rem,2vw,1.35rem); font-style:italic; color:var(--royal-dark); line-height:1.75; margin-bottom:2rem; padding-left:1.5rem; border-left:4px solid var(--orange); }
   .bio-para { font-size:.875rem; line-height:2; color:var(--text-body); margin-bottom:1.5rem; }
   .bio-para:last-child { margin-bottom:0; }
   .bio-para strong { color:var(--royal); font-weight:700; }
   .bio-para em { color:var(--orange); font-style:italic; }
-
-  /* Fonctions élues (liste avec puces) */
-  .bio-subtitle {
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.15rem; font-weight:700;
-    color:var(--royal-dark); display:block;
-    margin-bottom:.6rem; margin-top:1.8rem;
-  }
+  .bio-subtitle { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:var(--royal-dark); display:block; margin-bottom:.6rem; margin-top:1.8rem; }
   .bio-list { list-style:none; padding:0; margin:0 0 1.5rem; }
-  .bio-list li {
-    font-size:.875rem; line-height:1.8; color:var(--text-body);
-    padding:.3rem 0 .3rem 1.5rem; position:relative;
-    border-bottom:1px solid var(--border);
-  }
+  .bio-list li { font-size:.875rem; line-height:1.8; color:var(--text-body); padding:.3rem 0 .3rem 1.5rem; position:relative; border-bottom:1px solid var(--border); }
   .bio-list li:last-child { border-bottom:none; }
-  .bio-list li::before {
-    content:''; position:absolute; left:0; top:.85rem;
-    width:7px; height:7px; border-radius:50%;
-    background:var(--orange);
-  }
+  .bio-list li::before { content:''; position:absolute; left:0; top:.85rem; width:7px; height:7px; border-radius:50%; background:var(--orange); }
 
   /* Carte info */
-  .info-card {
-    background:var(--off-white); border:1px solid var(--border);
-    border-top:3px solid var(--orange); padding:2rem;
-    position:sticky; top:calc(var(--nav-h) + 1.5rem);
-  }
-  .info-card h3 {
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.4rem; font-weight:700;
-    color:var(--royal-dark); margin-bottom:1.6rem;
-    padding-bottom:.8rem; border-bottom:1px solid var(--border);
-  }
+  .info-card { background:var(--off-white); border:1px solid var(--border); border-top:3px solid var(--orange); padding:2rem; position:sticky; top:calc(var(--nav-h) + 1.5rem); }
+  .info-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--royal-dark); margin-bottom:1.6rem; padding-bottom:.8rem; border-bottom:1px solid var(--border); }
   .info-item { display:flex; gap:.9rem; margin-bottom:1.3rem; align-items:flex-start; }
   .info-item:last-child { margin-bottom:0; }
   .info-icon { width:38px; height:38px; flex-shrink:0; background:var(--light-bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:1rem; }
@@ -189,7 +162,7 @@
   .social-link { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .9rem; border:1.5px solid var(--border); background:var(--white); color:var(--text-body); font-size:.72rem; font-weight:600; transition:all .25s; }
   .social-link:hover { border-color:var(--orange); color:var(--orange); background:rgba(224,138,26,.05); }
 
-  /* ═══ FORMATION ═══ */
+  /* FORMATION */
   #formation { background:var(--off-white); }
   .formation-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
   .col-title { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:700; color:var(--royal-dark); margin-bottom:1.8rem; padding-bottom:.7rem; border-bottom:2px solid var(--orange); display:inline-block; }
@@ -204,7 +177,7 @@
   .tag { padding:.4rem .95rem; border:1.5px solid var(--border); background:var(--white); color:var(--text-body); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; }
   .tag:hover { border-color:var(--orange); color:var(--orange); background:rgba(224,138,26,.05); }
 
-  /* ═══ EXPERTISE ═══ */
+  /* EXPERTISE */
   #expertise { background:var(--white); }
   .expertise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
   .exp-card { background:var(--off-white); padding:2rem 1.6rem; border:1px solid var(--border); border-top:3px solid transparent; box-shadow:0 2px 12px rgba(26,58,143,.05); transition:all .32s ease; }
@@ -214,7 +187,7 @@
   .exp-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--royal-dark); margin-bottom:.55rem; }
   .exp-desc  { font-size:.78rem; line-height:1.8; color:var(--text-muted); }
 
-  /* ═══ PHILOSOPHIE ═══ */
+  /* PHILOSOPHIE */
   #philosophie { background:var(--royal-dark); position:relative; overflow:hidden; }
   #philosophie::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 44px); pointer-events:none; }
   .philo-inner { position:relative; z-index:1; text-align:center; max-width:820px; margin:0 auto; }
@@ -222,7 +195,7 @@
   .philo-quote::before { content:'"'; font-size:clamp(5rem,10vw,9rem); color:var(--orange-vif); opacity:.13; position:absolute; top:-3rem; left:-1rem; font-style:normal; line-height:1; pointer-events:none; }
   .philo-author { font-size:.78rem; color:rgba(255,255,255,.45); letter-spacing:.12em; text-transform:uppercase; margin-top:1.2rem; }
 
-  /* ═══ CTA ═══ */
+  /* CTA */
   #cta-section { background:var(--white); }
   .cta-box { max-width:680px; margin:0 auto; text-align:center; padding:3.5rem 2rem; border:1px solid var(--border); box-shadow:0 8px 40px rgba(26,58,143,.07); position:relative; }
   .cta-box::before { content:''; position:absolute; top:0; left:10%; right:10%; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); }
@@ -282,8 +255,7 @@
 </div>
 
 <!-- WA -->
-<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20je%20viens%20de%20visiter%20votre%20page%20%C3%80%20propos"
-   target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20je%20viens%20de%20visiter%20votre%20page%20%C3%80%20propos" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -313,7 +285,7 @@
   <a href="contact.html"  onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section id="about-hero">
   <div class="hero-pattern"></div>
   <div class="hero-glow g1"></div>
@@ -345,7 +317,7 @@
         <div class="photo-deco photo-deco-2"></div>
         <div class="photo-aspect">
           <div class="photo-box">
-            <img src="phg.jpg" alt="Honorable Cyrille Ghislain Tohouenou" onerror="this.style.display='none'"/>
+            <img src="phg.jpg" alt="Honorable Cyrille Ghislain Tohouenou, économiste et leader au Bénin" onerror="this.style.display='none'"/>
             <div class="photo-caption"><span class="photo-tag">Économiste &amp; Leader</span></div>
           </div>
         </div>
@@ -358,18 +330,16 @@
 
 <div class="sep"></div>
 
-<!-- ══════ PROFIL COMPLET ══════ -->
+<!-- PROFIL COMPLET -->
 <section id="profil">
   <div class="container">
     <div class="profil-grid">
-
       <!-- BIOGRAPHIE -->
       <div class="rv-l">
         <span class="eyebrow">Profil</span>
         <h2 class="section-title" style="margin-bottom:2rem;">
           Visionnaire &amp; <em>Acteur engagé</em>
         </h2>
-
         <p class="bio-intro">
           Économiste et Expert en Management des Projets Internationaux, diplômé de
           l'Université Senghor d'Alexandrie en Égypte, avec plus de
@@ -377,7 +347,6 @@
           de la gouvernance publique, du développement local, du leadership jeunesse,
           de la gestion de projets et de l'entrepreneuriat.
         </p>
-
         <p class="bio-para">
           Visionnaire et acteur engagé du développement, il est le
           <strong>Directeur Général de AFRICAXI</strong>, une entreprise innovante
@@ -385,7 +354,6 @@
           la communication, l'immobilier et les solutions technologiques adaptées aux
           réalités africaines.
         </p>
-
         <p class="bio-para">
           Il a occupé les fonctions de <strong>Coordonnateur National du Programme de
           Promotion de l'Entrepreneuriat des Jeunes (PPEJ)</strong> de 2022 à décembre
@@ -394,7 +362,6 @@
           initiatives de formation, d'accompagnement et d'insertion économique des
           jeunes entrepreneurs béninois.
         </p>
-
         <p class="bio-para">
           De février 2021 à septembre 2023, il a servi en qualité d'
           <strong>Assistant du Ministre des Sports du Bénin</strong>, contribuant au
@@ -403,7 +370,6 @@
           du <em>Championnat du Monde de Pétanque au Bénin</em> — avec des performances
           historiques de l'équipe nationale.
         </p>
-
         <p class="bio-para">
           Engagé dans la gouvernance locale et la représentation des jeunes, il est
           <strong>Président du Conseil National des Jeunes Élus du Bénin (CONAJEB)</strong>
@@ -412,7 +378,6 @@
           internationales (ONU, Commission Économique pour l'Afrique, Union Africaine)
           comme représentant de la jeunesse béninoise et panafricaine.
         </p>
-
         <p class="bio-para">
           Élu <strong>Conseiller Communal de Klouékanmè</strong> de mai 2020 à janvier
           2026, il a successivement occupé les fonctions de :
@@ -422,22 +387,19 @@
           <li>Président de la Commission Coopération et Relations avec les Institutions</li>
           <li>Membre du Conseil Départemental de Concertation et de Coordination du Couffo</li>
         </ul>
-
         <p class="bio-para">
           Son engagement pour la jeunesse remonte à plusieurs années, notamment à
           travers son rôle d'<strong>Ancien Président de la Fédération Nationale des
           Étudiants du Bénin (FNEB)</strong>, où il s'est illustré par son leadership
           syndical et estudiantin.
         </p>
-
         <p class="bio-para">
-          À travers ses différentes responsabilités, Cyrille Ghislain TOHOUENOU
+          À travers ses différentes responsabilités, Cyrille Ghislain TOUHOUNOU
           s'impose comme une <strong>figure montante du leadership béninois et
           africain</strong>, alliant vision stratégique, sens de l'innovation,
           engagement citoyen et capacité à mobiliser autour de projets à fort impact
           économique et social.
         </p>
-
         <p class="bio-para">
           Sa vision est de contribuer à l'émergence d'une <em>Afrique forte,
           compétitive et prospère</em>, portée par une jeunesse formée, entreprenante
@@ -449,27 +411,20 @@
       <div class="rv-r">
         <div class="info-card">
           <h3>📋 Informations clés</h3>
-
           <div class="info-item">
             <div class="info-icon">📞</div>
             <div>
               <div class="info-label">Téléphone</div>
-              <div class="info-value">
-                <a href="tel:+22901675498 26">(+229) 01 67 54 98 26</a>
-              </div>
+              <div class="info-value"><a href="tel:+2290167549826">(+229) 01 67 54 98 26</a></div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">📧</div>
             <div>
               <div class="info-label">Email</div>
-              <div class="info-value">
-                <a href="mailto:cyriltohouenou2@gmail.com">cyriltohouenou2@gmail.com</a>
-              </div>
+              <div class="info-value"><a href="mailto:cyriltohouenou2@gmail.com">cyriltohouenou2@gmail.com</a></div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">📍</div>
             <div>
@@ -477,7 +432,6 @@
               <div class="info-value">Klouékanmè, Couffo 🇧🇯</div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">🎓</div>
             <div>
@@ -485,7 +439,6 @@
               <div class="info-value">Master 2 — Université Senghor, Alexandrie<br/>FASEG — Université d'Abomey-Calavi</div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">💼</div>
             <div>
@@ -493,7 +446,6 @@
               <div class="info-value">DG AFRICAXI · Président CONAJEB<br/>Point Focal UPJ / Bénin</div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">🌐</div>
             <div>
@@ -501,7 +453,6 @@
               <div class="info-value">Français · Anglais · Fon · Adja · Mina · Goun</div>
             </div>
           </div>
-
           <div class="info-item">
             <div class="info-icon">❤️</div>
             <div>
@@ -509,9 +460,7 @@
               <div class="info-value">Lecture · Technologie · Voyages · Échecs · Football · Bénévolat</div>
             </div>
           </div>
-
           <div class="info-sep"></div>
-
           <div class="social-title">Réseaux & Web</div>
           <div class="social-links">
             <a href="https://linkedin.com/in/cyrille-ghislain-tohouenou" target="_blank" class="social-link">🔗 LinkedIn</a>
@@ -520,14 +469,13 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="sep-blue"></div>
 
-<!-- ══════ FORMATION & COMPÉTENCES ══════ -->
+<!-- FORMATION & COMPÉTENCES -->
 <section id="formation">
   <div class="container">
     <div style="text-align:center;margin-bottom:3.5rem;" class="rv">
@@ -580,7 +528,7 @@
 
 <div class="sep"></div>
 
-<!-- ══════ EXPERTISE ══════ -->
+<!-- EXPERTISE -->
 <section id="expertise">
   <div class="container">
     <div style="text-align:center;margin-bottom:3rem;" class="rv">
@@ -588,60 +536,31 @@
       <h2 class="section-title">Expertise <em>multidimensionnelle</em></h2>
     </div>
     <div class="expertise-grid">
-      <div class="exp-card rv">
-        <div class="exp-num">01</div><div class="exp-icon">📊</div>
-        <h3 class="exp-title">Management International</h3>
-        <p class="exp-desc">Pilotage de projets complexes, coordination de partenaires multilatéraux, mobilisation de financements internationaux.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.08s">
-        <div class="exp-num">02</div><div class="exp-icon">🏛️</div>
-        <h3 class="exp-title">Gouvernance Participative</h3>
-        <p class="exp-desc">Décentralisation, réformes institutionnelles, inclusion citoyenne et leadership local au service des communautés.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.16s">
-        <div class="exp-num">03</div><div class="exp-icon">📱</div>
-        <h3 class="exp-title">Transformation Digitale</h3>
-        <p class="exp-desc">Digitalisation des marchés, e-commerce, solutions technologiques adaptées aux réalités africaines.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.24s">
-        <div class="exp-num">04</div><div class="exp-icon">🧑‍🤝‍🧑</div>
-        <h3 class="exp-title">Engagement Civique Jeunesse</h3>
-        <p class="exp-desc">Formation, accompagnement et insertion des jeunes dans les sphères politiques, économiques et sociales.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.32s">
-        <div class="exp-num">05</div><div class="exp-icon">💼</div>
-        <h3 class="exp-title">Entrepreneuriat</h3>
-        <p class="exp-desc">Création et gestion d'entreprises, stratégie de croissance, développement PME et accompagnement de startups.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.4s">
-        <div class="exp-num">06</div><div class="exp-icon">🌍</div>
-        <h3 class="exp-title">Diplomatie &amp; Coopération</h3>
-        <p class="exp-desc">Représentation internationale, partenariats institutionnels, forums ONU, UA, CEA et réseaux panafricains.</p>
-      </div>
+      <div class="exp-card rv"><div class="exp-num">01</div><div class="exp-icon">📊</div><h3 class="exp-title">Management International</h3><p class="exp-desc">Pilotage de projets complexes, coordination de partenaires multilatéraux, mobilisation de financements internationaux.</p></div>
+      <div class="exp-card rv" style="transition-delay:.08s"><div class="exp-num">02</div><div class="exp-icon">🏛️</div><h3 class="exp-title">Gouvernance Participative</h3><p class="exp-desc">Décentralisation, réformes institutionnelles, inclusion citoyenne et leadership local au service des communautés.</p></div>
+      <div class="exp-card rv" style="transition-delay:.16s"><div class="exp-num">03</div><div class="exp-icon">📱</div><h3 class="exp-title">Transformation Digitale</h3><p class="exp-desc">Digitalisation des marchés, e-commerce, solutions technologiques adaptées aux réalités africaines.</p></div>
+      <div class="exp-card rv" style="transition-delay:.24s"><div class="exp-num">04</div><div class="exp-icon">🧑‍🤝‍🧑</div><h3 class="exp-title">Engagement Civique Jeunesse</h3><p class="exp-desc">Formation, accompagnement et insertion des jeunes dans les sphères politiques, économiques et sociales.</p></div>
+      <div class="exp-card rv" style="transition-delay:.32s"><div class="exp-num">05</div><div class="exp-icon">💼</div><h3 class="exp-title">Entrepreneuriat</h3><p class="exp-desc">Création et gestion d'entreprises, stratégie de croissance, développement PME et accompagnement de startups.</p></div>
+      <div class="exp-card rv" style="transition-delay:.4s"><div class="exp-num">06</div><div class="exp-icon">🌍</div><h3 class="exp-title">Diplomatie &amp; Coopération</h3><p class="exp-desc">Représentation internationale, partenariats institutionnels, forums ONU, UA, CEA et réseaux panafricains.</p></div>
     </div>
   </div>
 </section>
 
 <div class="sep-blue"></div>
 
-<!-- ══════ PHILOSOPHIE ══════ -->
+<!-- PHILOSOPHIE -->
 <section id="philosophie">
   <div class="philo-inner rv">
     <span class="eyebrow" style="color:var(--orange-pale);">Philosophie</span>
-    <h2 class="section-title" style="color:var(--white);margin-bottom:0;">
-      Ce qui <em style="color:var(--orange-pale);">m'anime</em> 🔥
-    </h2>
-    <p class="philo-quote">
-      « Ce n'est pas le vent qui décide de votre destination,
-      c'est l'orientation que vous donnez à votre voile. »
-    </p>
+    <h2 class="section-title" style="color:var(--white);margin-bottom:0;">Ce qui <em style="color:var(--orange-pale);">m'anime</em> 🔥</h2>
+    <p class="philo-quote">« Ce n'est pas le vent qui décide de votre destination, c'est l'orientation que vous donnez à votre voile. »</p>
     <p class="philo-author">— Cyrille Ghislain Tohouenou</p>
   </div>
 </section>
 
 <div class="sep"></div>
 
-<!-- ══════ CTA ══════ -->
+<!-- CTA -->
 <section id="cta-section">
   <div class="container">
     <div class="cta-box rv">
@@ -673,6 +592,68 @@
   </div>
   <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir pour un Bénin émergent.</p>
 </footer>
+
+<!-- DONNÉES STRUCTURÉES JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cyrille Ghislain Tohouenou",
+  "alternateName": "Honorable Cyrille Ghislain Tohouenou",
+  "jobTitle": "Économiste, Expert en Management International",
+  "description": "Économiste, DG AFRICAXI, Président du CONAJEB, Conseiller communal de Klouékanmè. Plus de 12 ans d'expérience en gouvernance publique, développement local et entrepreneuriat.",
+  "image": "https://cyrilletohouenou.com/phg.jpg",
+  "email": "cyriltohouenou2@gmail.com",
+  "telephone": "+2290167549826",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Klouékanmè",
+    "addressRegion": "Couffo",
+    "addressCountry": "Bénin"
+  },
+  "url": "https://cyrilletohouenou.com/about.html",
+  "sameAs": [
+    "https://www.facebook.com/tohouenoubenidedieu/",
+    "https://linkedin.com/in/cyrille-ghislain-tohouenou"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "AFRICAXI",
+    "url": "https://cyrilletohouenou.com"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Université Senghor d'Alexandrie"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Université d'Abomey-Calavi"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://cyrilletohouenou.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "À propos",
+      "item": "https://cyrilletohouenou.com/about.html"
+    }
+  ]
+}
+</script>
 
 <script>
   window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),2400));
