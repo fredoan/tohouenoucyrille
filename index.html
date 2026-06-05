@@ -4,12 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cyrille Ghislain Tohouenou — Économiste, Expert en Management International & Leader</title>
-  <meta name="description" content="Honorable Cyrille Ghislain Tohouenou — Économiste, Expert en Management des Projets Internationaux, DG AFRICAXI, Président CONAJEB, Conseiller Communal de Klouékanmè." />
+  <meta name="description" content="Honorable Cyrille Ghislain Tohouenou — Économiste, Expert en Management des Projets Internationaux, DG AFRICAXI, Président CONAJEB, Conseiller Communal de Klouékanmè. Découvrez son parcours, sa vision et ses engagements pour le Bénin et l'Afrique. Contactez-le dès aujourd'hui." />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cyrilletohouenou.com/">
   <meta property="og:title" content="Cyrille Ghislain Tohouenou — Économiste & Expert International" />
-  <meta property="og:description" content="Gouvernance participative, transformation digitale, engagement civique et entrepreneuriat au service du Bénin." />
-  <meta property="og:image" content="pha.jpg" />
+  <meta property="og:description" content="Gouvernance participative, transformation digitale, engagement civique et entrepreneuriat au service du Bénin. Découvrez le parcours d'un leader d'impact." />
+  <meta property="og:image" content="https://cyrilletohouenou.com/pha.jpg" />
+  <meta property="og:url" content="https://cyrilletohouenou.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+  /* ===== VOTRE STYLE EXISTANT (INCHANGÉ) ===== */
   :root {
     --royal:       #1a3a8f;
     --royal-dark:  #0f2460;
@@ -100,34 +106,25 @@
   .wa-float:hover { transform:scale(1.1); }
   @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-  /* ═══ HERO ═══ */
+  /* HERO */
   #hero { background:var(--royal-dark); min-height:100vh; display:flex; flex-direction:column; padding-top:var(--nav-h); position:relative; overflow:hidden; }
   .hero-pattern { position:absolute; inset:0; pointer-events:none; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px),repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px); }
   .hero-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
   .g1 { width:clamp(260px,40vw,520px); height:clamp(260px,40vw,520px); background:rgba(240,152,32,.1); top:-15%; right:-8%; animation:gfloat 9s ease-in-out infinite; }
   .g2 { width:clamp(200px,32vw,420px); height:clamp(200px,32vw,420px); background:rgba(43,82,196,.3); bottom:-10%; left:-6%; animation:gfloat 12s ease-in-out infinite reverse; }
   @keyframes gfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-36px)} }
-
   .hero-inner { flex:1; position:relative; z-index:2; max-width:1180px; width:100%; margin:0 auto; padding:4rem 5% 5rem; display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
   .hero-text { opacity:0; animation:hSlideL 1s ease .5s forwards; }
   @keyframes hSlideL { from{opacity:0;transform:translateX(-44px)} to{opacity:1;transform:none} }
-
   .hero-eyebrow { display:flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
   .hero-eyebrow-line { width:42px; height:1px; background:var(--orange-vif); flex-shrink:0; }
   .hero-eyebrow-txt  { font-size:.66rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--orange-pale); }
-
   .hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,5vw,5rem); font-weight:300; color:var(--white); line-height:1.1; margin-bottom:.5rem; }
   .hero-name strong { color:var(--orange-vif); font-weight:700; display:block; }
-
   .hero-fonction { font-family:'Cormorant Garamond',serif; font-size:clamp(.95rem,1.8vw,1.5rem); font-style:italic; color:rgba(255,255,255,.8); margin-bottom:1.4rem; line-height:1.5; }
-
-  /* Tags domaines */
   .hero-domains { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2rem; }
   .hero-domain-tag { padding:.28rem .8rem; border:1px solid rgba(240,152,32,.35); color:var(--orange-pale); font-size:.6rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
-
   .hero-btns { display:flex; gap:.9rem; flex-wrap:wrap; }
-
-  /* Photo */
   .hero-photo { display:flex; justify-content:center; align-items:center; opacity:0; animation:hSlideR 1s ease .7s forwards; }
   @keyframes hSlideR { from{opacity:0;transform:translateX(44px)} to{opacity:1;transform:none} }
   .photo-wrap { position:relative; width:min(340px,85vw); }
@@ -144,7 +141,7 @@
   .corner.tl { top:-1px; left:-1px; border-top:3px solid var(--orange-vif); border-left:3px solid var(--orange-vif); }
   .corner.br { bottom:-1px; right:-1px; border-bottom:3px solid var(--orange-vif); border-right:3px solid var(--orange-vif); }
 
-  /* ═══ ABOUT TEASER ═══ */
+  /* ABOUT TEASER */
   #about-teaser { background:var(--white); }
   .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
   .about-img-wrap { position:relative; }
@@ -155,7 +152,7 @@
   .about-text strong { color:var(--royal); }
   .about-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--light-bg); border-left:3px solid var(--orange); padding:.45rem 1rem; font-size:.76rem; font-weight:600; color:var(--royal); margin-bottom:1.3rem; }
 
-  /* ═══ EXPERTISE ═══ */
+  /* EXPERTISE */
   #expertise { background:var(--off-white); }
   .section-header { text-align:center; margin-bottom:3rem; }
   .expertise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
@@ -166,7 +163,7 @@
   .exp-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--royal-dark); margin-bottom:.55rem; }
   .exp-desc  { font-size:.78rem; line-height:1.8; color:var(--text-muted); }
 
-  /* ═══ PARCOURS TEASER ═══ */
+  /* PARCOURS TEASER */
   #parcours-teaser { background:var(--white); }
   .timeline { max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:.85rem; }
   .tl-item { display:flex; gap:1.2rem; align-items:flex-start; padding:1.3rem 1.4rem; background:var(--off-white); border-left:3px solid var(--royal); transition:all .3s; }
@@ -176,7 +173,7 @@
   .tl-title { font-size:.9rem; font-weight:700; color:var(--royal-dark); margin:.22rem 0 .18rem; }
   .tl-desc  { font-size:.78rem; line-height:1.7; color:var(--text-muted); }
 
-  /* ═══ ACTUALITÉS TEASER ═══ */
+  /* ACTUALITÉS TEASER */
   #actu-teaser { background:var(--off-white); }
   .actu-head { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:2.2rem; }
   .actu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; margin-bottom:2.2rem; }
@@ -193,7 +190,7 @@
   .actu-foot { padding:.85rem 1.3rem; border-top:1px solid var(--border); font-size:.66rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--royal); transition:color .3s; }
   .actu-card:hover .actu-foot { color:var(--orange); }
 
-  /* ═══ GALERIE TEASER ═══ */
+  /* GALERIE TEASER */
   #galerie-teaser { background:var(--white); }
   .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.55rem; }
   .g-item { overflow:hidden; position:relative; background:var(--light-bg); cursor:pointer; aspect-ratio:3/4; }
@@ -204,7 +201,7 @@
   .g-border  { position:absolute; inset:0; border:2px solid transparent; transition:border-color .4s; pointer-events:none; }
   .g-item:hover .g-border { border-color:var(--orange); }
 
-  /* ═══ VISION TEASER ═══ */
+  /* VISION TEASER */
   #vision-teaser { background:var(--royal-dark); position:relative; overflow:hidden; padding:6rem 5%; }
   #vision-teaser::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 44px); }
   #vision-teaser::after { content:''; position:absolute; top:-30%; right:-10%; width:55%; height:160%; background:linear-gradient(135deg,rgba(240,152,32,.08),rgba(43,82,196,.2),transparent 70%); pointer-events:none; }
@@ -212,7 +209,7 @@
   .vision-quote { font-family:'Cormorant Garamond',serif; font-size:clamp(1.35rem,3vw,2rem); font-style:italic; color:rgba(255,255,255,.9); line-height:1.7; margin:1.4rem 0 2.4rem; position:relative; }
   .vision-quote::before { content:'"'; font-size:clamp(5rem,10vw,9rem); color:var(--orange-vif); opacity:.13; position:absolute; top:-4rem; left:-1rem; font-style:normal; line-height:1; pointer-events:none; }
 
-  /* ═══ CONTACT TEASER ═══ */
+  /* CONTACT TEASER */
   #contact-teaser { background:var(--white); }
   .contact-box { max-width:740px; margin:0 auto; text-align:center; padding:3.5rem 2.5rem; border:1px solid var(--border); box-shadow:0 8px 40px rgba(26,58,143,.07); position:relative; }
   .contact-box::before { content:''; position:absolute; top:0; left:10%; right:10%; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); }
@@ -278,8 +275,7 @@
 </div>
 
 <!-- WA -->
-<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous."
-   target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -309,7 +305,7 @@
   <a href="contact.html"  onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-pattern"></div>
   <div class="hero-glow g1"></div>
@@ -344,7 +340,7 @@
         <div class="photo-deco photo-deco-2"></div>
         <div class="photo-aspect">
           <div class="photo-box">
-            <img src="pha.jpg" alt="Cyrille Ghislain Tohouenou" onerror="this.style.display='none'"/>
+            <img src="pha.jpg" alt="Cyrille Ghislain Tohouenou, économiste et leader au Bénin" onerror="this.style.display='none'"/>
             <div class="photo-caption"><span class="photo-tag">Leader d'impact</span></div>
           </div>
         </div>
@@ -357,12 +353,12 @@
 
 <div class="sep"></div>
 
-<!-- ══════ À PROPOS TEASER ══════ -->
+<!-- ABOUT TEASER -->
 <section id="about-teaser">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap rv-l">
-        <img src="phb.jpg" alt="Cyrille Tohouenou en action" onerror="this.style.minHeight='300px';this.style.background='var(--light-bg)'"/>
+        <img src="phb.jpg" alt="Cyrille Tohouenou en action lors d'une conférence" onerror="this.style.minHeight='300px';this.style.background='var(--light-bg)'"/>
         <div class="about-img-frame"></div>
       </div>
       <div class="about-text rv-r">
@@ -383,7 +379,7 @@
 
 <div class="sep-blue"></div>
 
-<!-- ══════ EXPERTISE ══════ -->
+<!-- EXPERTISE -->
 <section id="expertise">
   <div class="container">
     <div class="section-header rv">
@@ -391,43 +387,19 @@
       <h2 class="section-title">Expertise <em>multidimensionnelle</em></h2>
     </div>
     <div class="expertise-grid">
-      <div class="exp-card rv">
-        <div class="exp-num">01</div><div class="exp-icon">📊</div>
-        <h3 class="exp-title">Management International</h3>
-        <p class="exp-desc">Pilotage de projets complexes, coordination multilatérale, mobilisation de financements internationaux (CONFEJES, GIZ, UA).</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.08s">
-        <div class="exp-num">02</div><div class="exp-icon">🏛️</div>
-        <h3 class="exp-title">Gouvernance Participative</h3>
-        <p class="exp-desc">Décentralisation, réformes institutionnelles, inclusion citoyenne et leadership local au service des communautés.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.16s">
-        <div class="exp-num">03</div><div class="exp-icon">📱</div>
-        <h3 class="exp-title">Transformation Digitale</h3>
-        <p class="exp-desc">Digitalisation des marchés, e-commerce, solutions technologiques adaptées aux réalités africaines avec AFRICAXI.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.24s">
-        <div class="exp-num">04</div><div class="exp-icon">🧑‍🤝‍🧑</div>
-        <h3 class="exp-title">Engagement Civique Jeunesse</h3>
-        <p class="exp-desc">Formation, accompagnement et insertion des jeunes dans les sphères politiques, économiques et sociales — CONAJEB, PPEJ.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.32s">
-        <div class="exp-num">05</div><div class="exp-icon">💼</div>
-        <h3 class="exp-title">Entrepreneuriat</h3>
-        <p class="exp-desc">Création et gestion d'entreprises, stratégie de croissance, développement PME et accompagnement de startups africaines.</p>
-      </div>
-      <div class="exp-card rv" style="transition-delay:.4s">
-        <div class="exp-num">06</div><div class="exp-icon">🌍</div>
-        <h3 class="exp-title">Diplomatie &amp; Coopération</h3>
-        <p class="exp-desc">Représentation internationale, forums ONU, UA, CEA, plus de 20 missions internationales sur la gouvernance et la décentralisation.</p>
-      </div>
+      <div class="exp-card rv"><div class="exp-num">01</div><div class="exp-icon">📊</div><h3 class="exp-title">Management International</h3><p class="exp-desc">Pilotage de projets complexes, coordination multilatérale, mobilisation de financements internationaux (CONFEJES, GIZ, UA).</p></div>
+      <div class="exp-card rv" style="transition-delay:.08s"><div class="exp-num">02</div><div class="exp-icon">🏛️</div><h3 class="exp-title">Gouvernance Participative</h3><p class="exp-desc">Décentralisation, réformes institutionnelles, inclusion citoyenne et leadership local au service des communautés.</p></div>
+      <div class="exp-card rv" style="transition-delay:.16s"><div class="exp-num">03</div><div class="exp-icon">📱</div><h3 class="exp-title">Transformation Digitale</h3><p class="exp-desc">Digitalisation des marchés, e-commerce, solutions technologiques adaptées aux réalités africaines avec AFRICAXI.</p></div>
+      <div class="exp-card rv" style="transition-delay:.24s"><div class="exp-num">04</div><div class="exp-icon">🧑‍🤝‍🧑</div><h3 class="exp-title">Engagement Civique Jeunesse</h3><p class="exp-desc">Formation, accompagnement et insertion des jeunes dans les sphères politiques, économiques et sociales — CONAJEB, PPEJ.</p></div>
+      <div class="exp-card rv" style="transition-delay:.32s"><div class="exp-num">05</div><div class="exp-icon">💼</div><h3 class="exp-title">Entrepreneuriat</h3><p class="exp-desc">Création et gestion d'entreprises, stratégie de croissance, développement PME et accompagnement de startups africaines.</p></div>
+      <div class="exp-card rv" style="transition-delay:.4s"><div class="exp-num">06</div><div class="exp-icon">🌍</div><h3 class="exp-title">Diplomatie &amp; Coopération</h3><p class="exp-desc">Représentation internationale, forums ONU, UA, CEA, plus de 20 missions internationales sur la gouvernance et la décentralisation.</p></div>
     </div>
   </div>
 </section>
 
 <div class="sep"></div>
 
-<!-- ══════ PARCOURS TEASER ══════ -->
+<!-- PARCOURS TEASER -->
 <section id="parcours-teaser">
   <div class="container">
     <div style="text-align:center;margin-bottom:3rem;" class="rv">
@@ -435,38 +407,10 @@
       <h2 class="section-title">Un Parcours <em>d'Exception</em></h2>
     </div>
     <div class="timeline rv">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div>
-          <span class="tl-year">2024 — à ce jour</span>
-          <h4 class="tl-title">Directeur Général — AFRICAXI</h4>
-          <p class="tl-desc">Pilotage stratégique, transformation digitale et expansion en Afrique de l'Ouest.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div>
-          <span class="tl-year">Janv. 2022 — Déc. 2024</span>
-          <h4 class="tl-title">Coordonnateur National — PPEJ (CONFEJES)</h4>
-          <p class="tl-desc">Pilotage du programme national de promotion de l'entrepreneuriat des jeunes béninois.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div>
-          <span class="tl-year">Juin 2021 — à ce jour</span>
-          <h4 class="tl-title">Président du CONAJEB &amp; Point Focal UPJ</h4>
-          <p class="tl-desc">Représentation de la jeunesse béninoise et panafricaine sur la scène internationale.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div>
-          <span class="tl-year">Mai 2020 — Janv. 2026</span>
-          <h4 class="tl-title">Conseiller Communal — Klouékanmè</h4>
-          <p class="tl-desc">Gouvernance locale, finances communales et développement économique du Couffo.</p>
-        </div>
-      </div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-year">2024 — à ce jour</span><h4 class="tl-title">Directeur Général — AFRICAXI</h4><p class="tl-desc">Pilotage stratégique, transformation digitale et expansion en Afrique de l'Ouest.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-year">Janv. 2022 — Déc. 2024</span><h4 class="tl-title">Coordonnateur National — PPEJ (CONFEJES)</h4><p class="tl-desc">Pilotage du programme national de promotion de l'entrepreneuriat des jeunes béninois.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-year">Juin 2021 — à ce jour</span><h4 class="tl-title">Président du CONAJEB &amp; Point Focal UPJ</h4><p class="tl-desc">Représentation de la jeunesse béninoise et panafricaine sur la scène internationale.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-year">Mai 2020 — Janv. 2026</span><h4 class="tl-title">Conseiller Communal — Klouékanmè</h4><p class="tl-desc">Gouvernance locale, finances communales et développement économique du Couffo.</p></div></div>
     </div>
     <div style="text-align:center;margin-top:2.2rem;" class="rv">
       <a href="parcours.html" class="btn btn-outline">📁 Parcours complet (11 postes)</a>
@@ -476,89 +420,53 @@
 
 <div class="sep-blue"></div>
 
-<!-- ══════ ACTUALITÉS TEASER ══════ -->
+<!-- ACTUALITÉS TEASER -->
 <section id="actu-teaser">
   <div class="container">
     <div class="actu-head rv">
-      <div>
-        <span class="eyebrow">Publications</span>
-        <h2 class="section-title">Actualités &amp; <em>Articles</em></h2>
-      </div>
+      <div><span class="eyebrow">Publications</span><h2 class="section-title">Actualités &amp; <em>Articles</em></h2></div>
       <a href="blog.html" class="btn btn-outline">Voir tout →</a>
     </div>
     <div class="actu-grid rv">
-      <div class="actu-card" onclick="location.href='blog.html'">
-        <div class="actu-top pol"></div>
-        <div class="actu-body">
-          <div class="actu-cat">Politique</div>
-          <h3 class="actu-title">Décentralisation et gouvernance locale au Bénin</h3>
-          <p class="actu-excerpt">Réflexions sur le rôle des jeunes élus dans la transformation des collectivités locales…</p>
-        </div>
-        <div class="actu-foot">Lire l'article →</div>
-      </div>
-      <div class="actu-card" onclick="location.href='blog.html'">
-        <div class="actu-top eco"></div>
-        <div class="actu-body">
-          <div class="actu-cat">Économie</div>
-          <h3 class="actu-title">L'entrepreneuriat local, moteur de l'émergence</h3>
-          <p class="actu-excerpt">Comment les entrepreneurs béninois peuvent contribuer à l'émergence économique nationale…</p>
-        </div>
-        <div class="actu-foot">Lire l'article →</div>
-      </div>
-      <div class="actu-card" onclick="location.href='blog.html'">
-        <div class="actu-top soc"></div>
-        <div class="actu-body">
-          <div class="actu-cat">Société</div>
-          <h3 class="actu-title">La jeunesse béninoise, moteur du changement</h3>
-          <p class="actu-excerpt">Analyse du rôle croissant des jeunes dans les sphères politiques et économiques du Bénin…</p>
-        </div>
-        <div class="actu-foot">Lire l'article →</div>
-      </div>
+      <div class="actu-card" onclick="location.href='blog.html'"><div class="actu-top pol"></div><div class="actu-body"><div class="actu-cat">Politique</div><h3 class="actu-title">Décentralisation et gouvernance locale au Bénin</h3><p class="actu-excerpt">Réflexions sur le rôle des jeunes élus dans la transformation des collectivités locales…</p></div><div class="actu-foot">Lire l'article →</div></div>
+      <div class="actu-card" onclick="location.href='blog.html'"><div class="actu-top eco"></div><div class="actu-body"><div class="actu-cat">Économie</div><h3 class="actu-title">L'entrepreneuriat local, moteur de l'émergence</h3><p class="actu-excerpt">Comment les entrepreneurs béninois peuvent contribuer à l'émergence économique nationale…</p></div><div class="actu-foot">Lire l'article →</div></div>
+      <div class="actu-card" onclick="location.href='blog.html'"><div class="actu-top soc"></div><div class="actu-body"><div class="actu-cat">Société</div><h3 class="actu-title">La jeunesse béninoise, moteur du changement</h3><p class="actu-excerpt">Analyse du rôle croissant des jeunes dans les sphères politiques et économiques du Bénin…</p></div><div class="actu-foot">Lire l'article →</div></div>
     </div>
-    <div style="text-align:center;" class="rv">
-      <a href="blog.html" class="btn btn-royal">📰 Tous les articles</a>
-    </div>
+    <div style="text-align:center;" class="rv"><a href="blog.html" class="btn btn-royal">📰 Tous les articles</a></div>
   </div>
 </section>
 
 <div class="sep"></div>
 
-<!-- ══════ GALERIE TEASER ══════ -->
+<!-- GALERIE TEASER -->
 <section id="galerie-teaser">
   <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;" class="rv">
-      <span class="eyebrow">Galerie</span>
-      <h2 class="section-title">Moments <em>Clés</em></h2>
-    </div>
+    <div style="text-align:center;margin-bottom:2.5rem;" class="rv"><span class="eyebrow">Galerie</span><h2 class="section-title">Moments <em>Clés</em></h2></div>
     <div class="gallery-grid rv">
-      <div class="g-item"><img src="phd.jpg" alt="" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
-      <div class="g-item"><img src="phc.jpg" alt="" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
-      <div class="g-item"><img src="phe.jpg" alt="" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
-      <div class="g-item"><img src="phf.jpg" alt="" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
+      <div class="g-item"><img src="phd.jpg" alt="Cyrille Tohouenou lors d'un événement officiel" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
+      <div class="g-item"><img src="phc.jpg" alt="Cyrille Tohouenou en conférence" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
+      <div class="g-item"><img src="phe.jpg" alt="Cyrille Tohouenou avec des jeunes leaders" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
+      <div class="g-item"><img src="phf.jpg" alt="Cyrille Tohouenou lors d'une mission officielle" onerror="this.style.display='none'"/><div class="g-overlay"></div><div class="g-border"></div></div>
     </div>
-    <div style="text-align:center;margin-top:1.8rem;" class="rv">
-      <a href="galerie.html" class="btn btn-outline">🖼️ Voir toute la galerie</a>
-    </div>
+    <div style="text-align:center;margin-top:1.8rem;" class="rv"><a href="galerie.html" class="btn btn-outline">🖼️ Voir toute la galerie</a></div>
   </div>
 </section>
 
 <div class="sep-blue"></div>
 
-<!-- ══════ VISION TEASER ══════ -->
+<!-- VISION TEASER -->
 <section id="vision-teaser">
   <div class="vision-inner rv">
     <span class="eyebrow" style="color:var(--orange-pale);">Vision</span>
     <h2 class="section-title on-dark"><em>Bâtir</em> le Bénin de demain</h2>
-    <blockquote class="vision-quote">
-      Contribuer à l'émergence d'une Afrique forte, compétitive et prospère, portée par une jeunesse formée, entreprenante et engagée. 🇧🇯✨
-    </blockquote>
+    <blockquote class="vision-quote">Contribuer à l'émergence d'une Afrique forte, compétitive et prospère, portée par une jeunesse formée, entreprenante et engagée. 🇧🇯✨</blockquote>
     <a href="vision.html" class="btn btn-outline-orange" style="border-color:rgba(240,152,32,.6);color:var(--orange-pale);">💡 Notre vision complète</a>
   </div>
 </section>
 
 <div class="sep"></div>
 
-<!-- ══════ CONTACT TEASER ══════ -->
+<!-- CONTACT TEASER -->
 <section id="contact-teaser">
   <div class="container">
     <div class="contact-box rv">
@@ -590,6 +498,81 @@
   </div>
   <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir pour un Bénin émergent.</p>
 </footer>
+
+<!-- DONNÉES STRUCTURÉES JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Cyrille Ghislain Tohouenou",
+  "url": "https://cyrilletohouenou.com/",
+  "description": "Site officiel de Cyrille Ghislain Tohouenou, économiste, expert en management international, DG AFRICAXI, Président CONAJEB.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://cyrilletohouenou.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cyrille Ghislain Tohouenou",
+  "alternateName": "Honorable Cyrille Ghislain Tohouenou",
+  "jobTitle": "Économiste, Expert en Management International",
+  "description": "Économiste, DG AFRICAXI, Président du CONAJEB, Conseiller communal de Klouékanmè. Plus de 12 ans d'expérience en gouvernance publique, développement local et entrepreneuriat.",
+  "image": "https://cyrilletohouenou.com/pha.jpg",
+  "email": "cyriltohouenou2@gmail.com",
+  "telephone": "+2290167549826",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Klouékanmè",
+    "addressRegion": "Couffo",
+    "addressCountry": "Bénin"
+  },
+  "url": "https://cyrilletohouenou.com/",
+  "sameAs": [
+    "https://www.facebook.com/tohouenoubenidedieu/",
+    "https://linkedin.com/in/cyrille-ghislain-tohouenou"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "AFRICAXI",
+    "url": "https://cyrilletohouenou.com"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AFRICAXI",
+  "url": "https://cyrilletohouenou.com",
+  "logo": "https://cyrilletohouenou.com/pha.jpg",
+  "sameAs": [
+    "https://www.facebook.com/tohouenoubenidedieu/",
+    "https://linkedin.com/in/cyrille-ghislain-tohouenou"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://cyrilletohouenou.com/index.html"
+    }
+  ]
+}
+</script>
 
 <script>
   window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),2400));
