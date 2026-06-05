@@ -9,535 +9,431 @@
   <meta property="og:description" content="Bâtir le Bénin de demain par une gouvernance transparente, l'innovation économique et une jeunesse au pouvoir." />
   <meta property="og:image" content="phk.jpg" />
   <meta property="og:url" content="https://www.cyriltohouenou.com/vision.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #0a1628;
-      --deep-navy: #060e1c;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --ivory: #f7f3ec;
-      --text-muted: #9a8f7e;
-      --card-bg: rgba(14,26,50,0.85);
+      --royal:       #1a3a8f;
+      --royal-dark:  #0f2460;
+      --royal-light: #2b52c4;
+      --orange:      #e08a1a;
+      --orange-vif:  #f09820;
+      --orange-pale: #f6c060;
+      --white:       #ffffff;
+      --off-white:   #f5f7fc;
+      --light-bg:    #eef2fb;
+      --text-dark:   #0d1e55;
+      --text-body:   #2c3e7a;
+      --text-muted:  #7282b0;
+      --border:      rgba(26,58,143,0.13);
+      --nav-h:       68px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--deep-navy);
-      color: var(--ivory);
-      overflow-x: hidden;
-    }
-    /* Loader */
-    #loader {
-      position: fixed; inset: 0; z-index: 10000;
-      background: var(--deep-navy);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
-    }
-    #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .loader-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      color: var(--gold);
-      letter-spacing: 0.15em;
-      opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
-    }
-    .loader-sub {
-      font-size: 0.75rem; letter-spacing: 0.35em;
-      color: var(--text-muted); text-transform: uppercase;
-      margin-top: 0.8rem; opacity: 0;
-      animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-    .loader-bar-wrap {
-      width: 220px; height: 2px;
-      background: rgba(201,168,76,0.2);
-      margin-top: 2.5rem; overflow: hidden;
-    }
-    .loader-bar {
-      height: 100%; background: var(--gold);
-      width: 0; animation: barFill 2s ease 0.8s forwards;
-    }
-    @keyframes barFill { to { width: 100%; } }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Montserrat',sans-serif; background:var(--white); color:var(--text-dark); overflow-x:hidden; -webkit-text-size-adjust:100%; }
+    img  { display:block; max-width:100%; height:auto; }
+    a    { text-decoration:none; }
 
-    /* Navigation */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.2rem 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(6,14,28,0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 30px rgba(0,0,0,0.5);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 600;
-      color: var(--gold); text-decoration: none;
-      letter-spacing: 0.08em;
-    }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text-muted);
-      font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; transition: color 0.3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 1px; background: var(--gold);
-      transform: scaleX(0); transition: transform 0.3s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
-    .mobile-menu {
-      display: none; position: fixed; top: 0; right: -100%;
-      width: 75%; height: 100vh; background: rgba(6,14,28,0.98);
-      backdrop-filter: blur(20px); flex-direction: column;
-      align-items: center; justify-content: center; gap: 2.5rem;
-      z-index: 200; transition: right 0.4s ease;
-    }
-    .mobile-menu.open { right: 0; display: flex; }
-    .mobile-menu a { color: var(--ivory); font-size: 1.1rem; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; }
-    .close-menu { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--gold); cursor: pointer; }
+    /* LOADER */
+    #loader { position:fixed; inset:0; z-index:9999; background:var(--royal-dark); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .8s ease,visibility .8s ease; }
+    #loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+    .ld-logo { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,3.6rem); color:var(--orange-vif); letter-spacing:.15em; opacity:0; animation:ldUp .8s ease .3s forwards; }
+    .ld-sub  { font-size:clamp(.6rem,2vw,.72rem); letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:.8rem; text-align:center; padding:0 1rem; opacity:0; animation:ldUp .8s ease .6s forwards; }
+    .ld-bar-wrap { width:min(200px,70vw); height:2px; background:rgba(240,152,32,.2); margin-top:2.5rem; overflow:hidden; }
+    .ld-bar { height:100%; background:var(--orange-vif); width:0; animation:ldBar 2s ease .9s forwards; }
+    @keyframes ldBar { to{width:100%} }
+    @keyframes ldUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 
-    /* Hero */
-    #vision-hero {
-      min-height: 70vh;
-      display: flex; align-items: center;
-      background: linear-gradient(135deg, #060e1c 0%, #0d1f40 100%);
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; gap: 4rem;
-      max-width: 1200px; margin: 0 auto;
-      padding: 8rem 5% 4rem; position: relative; z-index: 2;
-    }
-    .hero-text h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      font-weight: 300; line-height: 1.2;
-    }
-    .hero-text h1 span { color: var(--gold); font-weight: 600; }
-    .hero-text .quote-accent {
-      font-size: 1.2rem; font-style: italic; color: var(--gold-light);
-      margin-top: 1.5rem; line-height: 1.6;
-    }
-    .hero-photo img {
-      width: 100%; max-width: 450px;
-      border: 1px solid rgba(201,168,76,0.3);
-      filter: contrast(1.05);
-    }
-    .hero-orb {
-      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
-    }
-    .orb1 { width: 500px; height: 500px; background: rgba(201,168,76,0.06); top: -80px; right: -80px; animation: orbFloat 8s infinite; }
-    .orb2 { width: 300px; height: 300px; background: rgba(30,58,110,0.3); bottom: -60px; left: -60px; animation: orbFloat 10s infinite reverse; }
-    @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; height:var(--nav-h); padding:0 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); transition:box-shadow .3s; }
+    nav.scrolled { box-shadow:0 4px 24px rgba(26,58,143,.09); }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--royal-dark); flex-shrink:0; }
+    .nav-logo span { color:var(--orange); }
+    .nav-links { display:flex; gap:1.6rem; list-style:none; align-items:center; }
+    .nav-links a { font-size:.68rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--text-body); transition:color .3s; white-space:nowrap; position:relative; padding-bottom:3px; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--orange); border-radius:2px; transform:scaleX(0); transition:transform .3s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--royal); }
+    .nav-links a:hover::after,.nav-links a.active::after { transform:scaleX(1); }
+    .nav-cta { padding:.45rem 1.2rem !important; background:var(--royal); color:var(--white) !important; transition:background .3s !important; }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { background:var(--royal-light) !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px; flex-shrink:0; }
+    .hamburger span { width:24px; height:2px; background:var(--royal); border-radius:2px; transition:.3s; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:var(--white); z-index:199; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; transform:translateX(100%); transition:transform .38s ease; border-top:1px solid var(--border); overflow-y:auto; }
+    .mobile-menu.open { transform:translateX(0); }
+    .mobile-menu a { font-size:1.05rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dark); transition:color .3s; }
+    .mobile-menu a:hover { color:var(--orange); }
+    .mob-cta { padding:.75rem 2.5rem !important; background:var(--royal) !important; color:var(--white) !important; }
 
-    /* Sections */
-    section { padding: 5rem 5%; }
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-eyebrow {
-      font-size: 0.68rem; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--gold);
-      display: block; margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300; color: var(--ivory);
-    }
-    .section-title em { color: var(--gold); font-style: italic; }
+    /* BOUTONS */
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.82rem 1.8rem; font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; transition:all .3s; cursor:pointer; border:none; white-space:nowrap; }
+    .btn-royal  { background:var(--royal); color:var(--white); }
+    .btn-royal:hover  { background:var(--royal-light); transform:translateY(-3px); box-shadow:0 10px 26px rgba(26,58,143,.28); }
+    .btn-orange { background:var(--orange); color:var(--white); }
+    .btn-orange:hover { background:var(--orange-vif); transform:translateY(-3px); box-shadow:0 10px 26px rgba(224,138,26,.32); }
+    .btn-outline { background:transparent; color:var(--royal); border:2px solid var(--royal); }
+    .btn-outline:hover { background:var(--royal); color:var(--white); transform:translateY(-3px); }
+    .btn-outline-orange { background:transparent; color:var(--orange); border:2px solid var(--orange); }
+    .btn-outline-orange:hover { background:var(--orange); color:var(--white); transform:translateY(-3px); }
+    .btn-outline-w { background:transparent; color:rgba(255,255,255,.85); border:2px solid rgba(255,255,255,.45); }
+    .btn-outline-w:hover { border-color:var(--orange-pale); color:var(--orange-pale); transform:translateY(-3px); }
 
-    /* Vision cards */
-    .vision-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .vision-card {
-      padding: 2rem;
-      border: 1px solid rgba(201,168,76,0.15);
-      background: var(--card-bg);
-      text-align: center;
-      transition: all 0.4s ease;
-    }
-    .vision-card:hover {
-      border-color: rgba(201,168,76,0.5);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    }
-    .vision-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-    .vision-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      color: var(--gold-light);
-      margin-bottom: 0.8rem;
-    }
-    .vision-card p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
+    /* SECTIONS BASE */
+    section { padding:5rem 5%; }
+    .container { max-width:1180px; margin:0 auto; width:100%; }
+    .eyebrow { display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.32em; text-transform:uppercase; color:var(--orange); margin-bottom:.9rem; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.9rem); font-weight:400; color:var(--royal-dark); line-height:1.2; }
+    .section-title em { color:var(--orange); font-style:italic; }
+    .section-title.on-dark { color:var(--white); }
+    .section-title.on-dark em { color:var(--orange-pale); }
+    .sep      { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--orange) 50%,transparent); opacity:.22; }
+    .sep-blue { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--royal) 50%,transparent); opacity:.14; }
+    .rv, .rv-l, .rv-r { opacity:0; transition:opacity .72s ease,transform .72s ease; }
+    .rv   { transform:translateY(26px); }
+    .rv-l { transform:translateX(-36px); }
+    .rv-r { transform:translateX(36px); }
+    .rv.on,.rv-l.on,.rv-r.on { opacity:1; transform:none; }
 
-    /* Engagements */
-    #engagements {
-      background: var(--navy);
-    }
-    .engagement-block {
-      max-width: 1000px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 2rem;
-    }
-    .engagement-item {
-      display: flex; gap: 2rem;
-      padding: 2rem;
-      border: 1px solid rgba(201,168,76,0.15);
-      background: var(--card-bg);
-      align-items: center;
-      transition: border-color 0.3s;
-    }
-    .engagement-item:hover { border-color: rgba(201,168,76,0.4); }
-    .engagement-logo {
-      font-size: 2.5rem; min-width: 60px; text-align: center;
-    }
-    .engagement-text h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      color: var(--gold-light);
-      margin-bottom: 0.5rem;
-    }
-    .engagement-text p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
+    /* WA */
+    .wa-float { position:fixed; bottom:22px; right:22px; z-index:998; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:25px; box-shadow:0 5px 20px rgba(0,0,0,.22); transition:transform .3s; animation:waPulse 2.5s infinite; }
+    .wa-float:hover { transform:scale(1.1); }
+    @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-    /* Citations */
-    #citations {
-      background: var(--deep-navy);
-      text-align: center;
-    }
-    .quote-block {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-      font-style: italic;
-      color: var(--gold-light);
-      line-height: 1.8;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      position: relative;
-      padding: 0 1rem;
-    }
-    .quote-block::before {
-      content: '“';
-      font-size: 6rem;
-      color: var(--gold);
-      opacity: 0.15;
-      position: absolute;
-      top: -3rem;
-      left: -1.5rem;
-      font-style: normal;
-    }
+    /* HERO VISION */
+    #vision-hero { background:var(--royal-dark); min-height:70vh; display:flex; align-items:center; padding-top:var(--nav-h); position:relative; overflow:hidden; }
+    .hero-pattern { position:absolute; inset:0; pointer-events:none; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px); }
+    .hero-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+    .g1 { width:clamp(260px,40vw,520px); height:clamp(260px,40vw,520px); background:rgba(240,152,32,.1); top:-15%; right:-8%; animation:gfloat 9s ease-in-out infinite; }
+    .g2 { width:clamp(200px,32vw,420px); height:clamp(200px,32vw,420px); background:rgba(43,82,196,.3); bottom:-10%; left:-6%; animation:gfloat 12s ease-in-out infinite reverse; }
+    @keyframes gfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-36px)} }
+    .hero-inner { position:relative; z-index:2; max-width:1180px; width:100%; margin:0 auto; padding:4rem 5% 5rem; display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+    .hero-text { opacity:0; animation:hSlideL 1s ease .5s forwards; }
+    @keyframes hSlideL { from{opacity:0;transform:translateX(-44px)} to{opacity:1;transform:none} }
+    .hero-eyebrow { display:flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
+    .hero-eyebrow-line { width:42px; height:1px; background:var(--orange-vif); flex-shrink:0; }
+    .hero-eyebrow-txt  { font-size:.66rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--orange-pale); }
+    .hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,5vw,5rem); font-weight:300; color:var(--white); line-height:1.1; margin-bottom:.5rem; }
+    .hero-name strong { color:var(--orange-vif); font-weight:700; display:block; }
+    .hero-quote { font-family:'Cormorant Garamond',serif; font-size:clamp(.95rem,1.8vw,1.5rem); font-style:italic; color:rgba(255,255,255,.8); margin:1.4rem 0 2rem; line-height:1.5; }
+    .hero-photo { display:flex; justify-content:center; align-items:center; opacity:0; animation:hSlideR 1s ease .7s forwards; }
+    @keyframes hSlideR { from{opacity:0;transform:translateX(44px)} to{opacity:1;transform:none} }
+    .photo-wrap { position:relative; width:min(340px,85vw); }
+    .photo-deco { position:absolute; inset:0; pointer-events:none; border:1px solid rgba(240,152,32,.3); }
+    .photo-deco-1 { transform:translate(12px,12px); }
+    .photo-deco-2 { transform:translate(22px,22px); border-color:rgba(240,152,32,.12); }
+    .photo-aspect { padding-bottom:125%; position:relative; }
+    .photo-box { position:absolute; inset:0; z-index:2; overflow:hidden; background:linear-gradient(135deg,#1a3a8f,#0f2460); }
+    .photo-box img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .6s; }
+    .photo-box:hover img { transform:scale(1.04); }
+    .photo-caption { position:absolute; bottom:0; left:0; right:0; z-index:3; padding:1.5rem; background:linear-gradient(transparent,rgba(10,20,60,.88)); }
+    .photo-tag { display:inline-block; padding:.28rem .85rem; background:var(--orange); color:var(--white); font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    .corner { position:absolute; width:38px; height:38px; z-index:4; }
+    .corner.tl { top:-1px; left:-1px; border-top:3px solid var(--orange-vif); border-left:3px solid var(--orange-vif); }
+    .corner.br { bottom:-1px; right:-1px; border-bottom:3px solid var(--orange-vif); border-right:3px solid var(--orange-vif); }
+
+    /* VALEURS (expertise cards) */
+    #valeurs { background:var(--off-white); }
+    .section-header { text-align:center; margin-bottom:3rem; }
+    .expertise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
+    .exp-card { background:var(--white); padding:2rem 1.6rem; border:1px solid var(--border); border-top:3px solid transparent; box-shadow:0 2px 12px rgba(26,58,143,.05); transition:all .32s ease; }
+    .exp-card:hover { border-top-color:var(--orange); transform:translateY(-5px); box-shadow:0 16px 40px rgba(26,58,143,.1); }
+    .exp-num  { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:700; color:rgba(26,58,143,.07); line-height:1; margin-bottom:.5rem; }
+    .exp-icon { font-size:1.7rem; margin-bottom:.7rem; }
+    .exp-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--royal-dark); margin-bottom:.55rem; }
+    .exp-desc  { font-size:.78rem; line-height:1.8; color:var(--text-muted); }
+
+    /* ENGAGEMENTS (timeline like) */
+    #engagements { background:var(--white); }
+    .timeline { max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:.85rem; }
+    .tl-item { display:flex; gap:1.2rem; align-items:flex-start; padding:1.3rem 1.4rem; background:var(--off-white); border-left:3px solid var(--royal); transition:all .3s; }
+    .tl-item:hover { background:var(--light-bg); border-left-color:var(--orange); }
+    .tl-dot { width:11px; height:11px; border-radius:50%; background:var(--orange); flex-shrink:0; margin-top:5px; box-shadow:0 0 0 3px rgba(224,138,26,.2); }
+    .tl-title { font-size:.9rem; font-weight:700; color:var(--royal-dark); margin:.22rem 0 .18rem; }
+    .tl-desc  { font-size:.78rem; line-height:1.7; color:var(--text-muted); }
+
+    /* CITATIONS (vision quote) */
+    #citations { background:var(--royal-dark); position:relative; overflow:hidden; padding:6rem 5%; }
+    #citations::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 44px); }
+    .vision-quote { font-family:'Cormorant Garamond',serif; font-size:clamp(1.35rem,3vw,2rem); font-style:italic; color:rgba(255,255,255,.9); line-height:1.7; margin:1.4rem 0 2.4rem; position:relative; }
+    .vision-quote::before { content:'"'; font-size:clamp(5rem,10vw,9rem); color:var(--orange-vif); opacity:.13; position:absolute; top:-4rem; left:-1rem; font-style:normal; line-height:1; pointer-events:none; }
 
     /* CTA */
-    #cta {
-      text-align: center;
-      background: var(--navy);
-    }
-    .btn-primary, .btn-outline {
-      padding: 0.9rem 2.2rem;
-      font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; font-weight: 700;
-      text-decoration: none; transition: all 0.3s;
-      display: inline-block; margin: 0.5rem;
-    }
-    .btn-primary {
-      background: var(--gold); color: var(--navy);
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,168,76,0.3); }
-    .btn-outline {
-      border: 1px solid rgba(201,168,76,0.5); color: var(--gold);
-    }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-3px); }
+    #cta { background:var(--white); text-align:center; }
+    .contact-box { max-width:740px; margin:0 auto; text-align:center; padding:3.5rem 2.5rem; border:1px solid var(--border); box-shadow:0 8px 40px rgba(26,58,143,.07); position:relative; }
+    .contact-box::before { content:''; position:absolute; top:0; left:10%; right:10%; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); }
+    .contact-box p { font-size:.87rem; line-height:1.9; color:var(--text-body); max-width:480px; margin:.8rem auto 2rem; }
+    .contact-btns { display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
 
-    /* Footer */
-    footer {
-      background: #03080f; padding: 3rem 5%;
-      text-align: center; border-top: 1px solid rgba(201,168,76,0.1);
-    }
-    .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0 1rem; }
-    .footer-btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1.5rem; border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); text-decoration: none;
-      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .footer-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
-    .footer-copy { font-size: 0.7rem; color: rgba(154,143,126,0.5); margin-top: 1rem; }
+    /* FOOTER */
+    footer { background:var(--royal-dark); padding:3.5rem 5%; text-align:center; }
+    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:700; color:var(--white); }
+    .footer-logo span { color:var(--orange-vif); }
+    .footer-tag  { color:rgba(255,255,255,.4); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; margin-top:.4rem; }
+    .footer-div  { width:70px; height:2px; margin:1.5rem auto; background:linear-gradient(90deg,var(--royal-light),var(--orange)); }
+    .footer-links { display:flex; justify-content:center; gap:1.6rem; flex-wrap:wrap; margin-bottom:1.6rem; }
+    .footer-links a { color:rgba(255,255,255,.42); font-size:.68rem; letter-spacing:.11em; text-transform:uppercase; transition:color .3s; }
+    .footer-links a:hover { color:var(--orange-pale); }
+    .footer-btns { display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.6rem; }
+    .footer-btn  { display:inline-flex; align-items:center; gap:.4rem; padding:.55rem 1.3rem; border:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.72); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:all .3s; }
+    .footer-btn:hover { border-color:var(--orange); color:var(--orange-pale); }
+    .footer-copy { font-size:.66rem; color:rgba(255,255,255,.22); }
 
-    /* WhatsApp floating */
-    .whatsapp-float {
-      position: fixed; bottom: 25px; right: 25px;
-      background: #25D366; color: white; border-radius: 50%;
-      width: 60px; height: 60px; display: flex;
-      align-items: center; justify-content: center;
-      font-size: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      z-index: 999; transition: transform 0.3s, box-shadow 0.3s;
-      animation: pulse 2s infinite;
-      text-decoration: none;
+    /* RESPONSIVE */
+    @media (max-width:1024px) {
+      .hero-inner { grid-template-columns:1fr; text-align:center; padding:3rem 5% 4rem; gap:2.5rem; }
+      .hero-text  { order:2; } .hero-photo { order:1; }
+      .hero-eyebrow { justify-content:center; }
+      .photo-wrap   { width:min(280px,70vw); }
+      .expertise-grid { grid-template-columns:repeat(2,1fr); }
     }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 30px rgba(37,211,102,0.4); }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
-      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    @media (max-width:680px) {
+      :root { --nav-h:62px; }
+      .nav-links { display:none; } .hamburger { display:flex; }
+      section    { padding:3.5rem 4%; }
+      .hero-inner { padding:2.5rem 4% 3.5rem; gap:2rem; }
+      .photo-wrap { width:min(240px,78vw); }
+      .expertise-grid { grid-template-columns:1fr; }
+      .contact-box { padding:2.2rem 1.2rem; }
+      .contact-btns .btn { width:100%; }
+      .hero-btns .btn { width:100%; }
+      .footer-btns { flex-direction:column; align-items:center; }
+      .footer-btn  { width:100%; max-width:280px; justify-content:center; }
     }
-
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity:0; transform:translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal-left.visible { opacity:1; transform:translateX(0); }
-    .reveal-right { opacity:0; transform:translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal-right.visible { opacity:1; transform:translateX(0); }
-
-    @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-photo { order: -1; }
-      .vision-grid { grid-template-columns: repeat(2, 1fr); }
-      .engagement-item { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 640px) {
-      .vision-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+    @media (max-width:400px) {
+      .photo-wrap   { width:85vw; }
     }
   </style>
 </head>
 <body>
 
-<!-- Loader -->
+<!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">C.G. TOHOUENOU</div>
-  <div class="loader-sub">Vision & Leadership 💡</div>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="ld-logo">C.G. TOHOUENOU</div>
+  <div class="ld-sub">Vision & Leadership 💡</div>
+  <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
 </div>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou%2C%20votre%20vision%20m%27inspire" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
+<!-- WA -->
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20votre%20vision%20m%27inspire" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
-<!-- Navigation -->
+<!-- NAV -->
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">CGT</a>
+  <a href="index.html" class="nav-logo">CGT<span>.</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="about.html">À propos</a></li>
     <li><a href="parcours.html">Parcours</a></li>
+    <li><a href="blog.html">Actualités</a></li>
     <li><a href="galerie.html">Galerie</a></li>
-    <li><a href="vision.html" style="color:var(--gold)">Vision</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="vision.html" class="active">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()">
+  <div class="hamburger" id="burger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- MENU MOBILE -->
 <div class="mobile-menu" id="mobileMenu">
-  <span class="close-menu" onclick="toggleMenu()">✕</span>
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="about.html" onclick="toggleMenu()">À propos</a>
-  <a href="parcours.html" onclick="toggleMenu()">Parcours</a>
-  <a href="galerie.html" onclick="toggleMenu()">Galerie</a>
-  <a href="vision.html" onclick="toggleMenu()">Vision</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos</a>
+  <a href="parcours.html" onclick="closeMenu()">Parcours</a>
+  <a href="blog.html" onclick="closeMenu()">Actualités</a>
+  <a href="galerie.html" onclick="closeMenu()">Galerie</a>
+  <a href="vision.html" onclick="closeMenu()">Vision</a>
+  <a href="contact.html" onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<!-- Hero -->
+<!-- ══════ HERO VISION ══════ -->
 <section id="vision-hero">
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-grid">
-    <div class="hero-text reveal-left">
-      <span class="section-eyebrow">Vision</span>
-      <h1>Bâtir le <span>Bénin</span> de demain 🇧🇯</h1>
-      <p class="quote-accent">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-txt">Vision · Leadership · Bénin 🇧🇯</span>
+      </div>
+      <h1 class="hero-name">
+        Bâtir le
+        <strong>Bénin de demain</strong>
+      </h1>
+      <blockquote class="hero-quote">
         « Ce n'est pas le vent qui décide de votre destination, c'est l'orientation que vous donnez à votre voile. » ⛵️
-      </p>
+      </blockquote>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-orange">📩 Me contacter</a>
+        <a href="index.html" class="btn btn-outline-w">🏠 Accueil</a>
+      </div>
     </div>
-    <div class="hero-photo reveal-right">
-      <img src="phk.jpg" alt="Cyrille Ghislain Tohouenou vision" onerror="this.style.background='#1e3a6e'; this.style.minHeight='300px'" />
-    </div>
-  </div>
-</section>
-
-<!-- Valeurs -->
-<section id="valeurs" style="background:var(--navy)">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Mes piliers</span>
-    <h2 class="section-title">Les <em>valeurs</em> qui me guident</h2>
-  </div>
-  <div class="vision-grid">
-    <div class="vision-card reveal">
-      <span class="vision-icon">⚖️</span>
-      <h3>Intégrité</h3>
-      <p>Une gouvernance transparente et éthique au service de l'intérêt général. Chaque action est guidée par la probité et le respect des citoyens.</p>
-    </div>
-    <div class="vision-card reveal" style="transition-delay:0.1s">
-      <span class="vision-icon">🔬</span>
-      <h3>Excellence</h3>
-      <p>La rigueur académique et professionnelle au service de l'action publique, pour des résultats mesurables et durables.</p>
-    </div>
-    <div class="vision-card reveal" style="transition-delay:0.2s">
-      <span class="vision-icon">🌱</span>
-      <h3>Développement</h3>
-      <p>Un Bénin prospère, une économie inclusive, où chaque jeune trouve sa place grâce à l'entrepreneuriat et l'innovation.</p>
-    </div>
-    <div class="vision-card reveal" style="transition-delay:0.3s">
-      <span class="vision-icon">🔥</span>
-      <h3>Engagement</h3>
-      <p>Un dévouement total à la cause publique, à la jeunesse et aux générations futures. L'action avant les discours.</p>
-    </div>
-    <div class="vision-card reveal" style="transition-delay:0.4s">
-      <span class="vision-icon">🤝</span>
-      <h3>Solidarité</h3>
-      <p>Construire des ponts entre les communautés, les générations et les nations pour un avenir commun.</p>
-    </div>
-    <div class="vision-card reveal" style="transition-delay:0.5s">
-      <span class="vision-icon">🌍</span>
-      <h3>Panafricanisme</h3>
-      <p>Porter la voix de la jeunesse africaine et œuvrer pour l'unité, la paix et le développement du continent.</p>
+    <div class="hero-photo">
+      <div class="photo-wrap">
+        <div class="photo-deco photo-deco-1"></div>
+        <div class="photo-deco photo-deco-2"></div>
+        <div class="photo-aspect">
+          <div class="photo-box">
+            <img src="phk.jpg" alt="Cyrille Ghislain Tohouenou vision" onerror="this.style.display='none'"/>
+            <div class="photo-caption"><span class="photo-tag">Leader d'impact</span></div>
+          </div>
+        </div>
+        <div class="corner tl"></div>
+        <div class="corner br"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Engagements politiques -->
+<div class="sep"></div>
+
+<!-- ══════ VALEURS ══════ -->
+<section id="valeurs">
+  <div class="container">
+    <div class="section-header rv">
+      <span class="eyebrow">Mes piliers</span>
+      <h2 class="section-title">Les <em>valeurs</em> qui me guident</h2>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-card rv">
+        <div class="exp-num">01</div><div class="exp-icon">⚖️</div>
+        <h3 class="exp-title">Intégrité</h3>
+        <p class="exp-desc">Une gouvernance transparente et éthique au service de l'intérêt général. Chaque action est guidée par la probité et le respect des citoyens.</p>
+      </div>
+      <div class="exp-card rv" style="transition-delay:.08s">
+        <div class="exp-num">02</div><div class="exp-icon">🔬</div>
+        <h3 class="exp-title">Excellence</h3>
+        <p class="exp-desc">La rigueur académique et professionnelle au service de l'action publique, pour des résultats mesurables et durables.</p>
+      </div>
+      <div class="exp-card rv" style="transition-delay:.16s">
+        <div class="exp-num">03</div><div class="exp-icon">🌱</div>
+        <h3 class="exp-title">Développement</h3>
+        <p class="exp-desc">Un Bénin prospère, une économie inclusive, où chaque jeune trouve sa place grâce à l'entrepreneuriat et l'innovation.</p>
+      </div>
+      <div class="exp-card rv" style="transition-delay:.24s">
+        <div class="exp-num">04</div><div class="exp-icon">🔥</div>
+        <h3 class="exp-title">Engagement</h3>
+        <p class="exp-desc">Un dévouement total à la cause publique, à la jeunesse et aux générations futures. L'action avant les discours.</p>
+      </div>
+      <div class="exp-card rv" style="transition-delay:.32s">
+        <div class="exp-num">05</div><div class="exp-icon">🤝</div>
+        <h3 class="exp-title">Solidarité</h3>
+        <p class="exp-desc">Construire des ponts entre les communautés, les générations et les nations pour un avenir commun.</p>
+      </div>
+      <div class="exp-card rv" style="transition-delay:.4s">
+        <div class="exp-num">06</div><div class="exp-icon">🌍</div>
+        <h3 class="exp-title">Panafricanisme</h3>
+        <p class="exp-desc">Porter la voix de la jeunesse africaine et œuvrer pour l'unité, la paix et le développement du continent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep-blue"></div>
+
+<!-- ══════ ENGAGEMENTS POLITIQUES ══════ -->
 <section id="engagements">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Engagements</span>
-    <h2 class="section-title">Leadership <em>politique & citoyen</em></h2>
-  </div>
-  <div class="engagement-block">
-    <div class="engagement-item reveal">
-      <div class="engagement-logo">🏛️</div>
-      <div class="engagement-text">
-        <h3>Union Progressiste le Renouveau (UPR)</h3>
-        <p>Membre du Bureau Politique de l'UPR, parti dirigé par le Professeur Joseph Djogbénou. Engagement pour le renouveau démocratique et la stabilité politique du Bénin.</p>
-      </div>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="rv">
+      <span class="eyebrow">Engagements</span>
+      <h2 class="section-title">Leadership <em>politique & citoyen</em></h2>
     </div>
-    <div class="engagement-item reveal">
-      <div class="engagement-logo">🗳️</div>
-      <div class="engagement-text">
-        <h3>FEROW – Mobilisation pour le Duo Wadagni-Talata</h3>
-        <p>Point focal départemental (Couffo) de la Fédération des mouvements de soutien à Romuald Wadagni. Acteur clé de la mobilisation citoyenne en vue de la présidentielle de 2026.</p>
+    <div class="timeline rv">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <h4 class="tl-title">🏛️ Union Progressiste le Renouveau (UPR)</h4>
+          <p class="tl-desc">Membre du Bureau Politique de l'UPR, parti dirigé par le Professeur Joseph Djogbénou. Engagement pour le renouveau démocratique et la stabilité politique du Bénin.</p>
+        </div>
       </div>
-    </div>
-    <div class="engagement-item reveal">
-      <div class="engagement-logo">🧑‍🤝‍🧑</div>
-      <div class="engagement-text">
-        <h3>CONAJEB – Conseil National des Jeunes Élus du Bénin</h3>
-        <p>Président depuis 2021. Formation des jeunes élus à la décentralisation, plaidoyer pour une meilleure inclusion des jeunes dans la gouvernance locale.</p>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <h4 class="tl-title">🗳️ FEROW – Mobilisation pour le Duo Wadagni-Talata</h4>
+          <p class="tl-desc">Point focal départemental (Couffo) de la Fédération des mouvements de soutien à Romuald Wadagni. Acteur clé de la mobilisation citoyenne en vue de la présidentielle de 2026.</p>
+        </div>
       </div>
-    </div>
-    <div class="engagement-item reveal">
-      <div class="engagement-logo">🌍</div>
-      <div class="engagement-text">
-        <h3>Union Panafricaine de la Jeunesse (UPJ)</h3>
-        <p>Point focal pour le Bénin. Participation active aux sommets continentaux pour la refondation de l'UPJ et la promotion des aspirations de la jeunesse africaine.</p>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <h4 class="tl-title">🧑‍🤝‍🧑 CONAJEB – Conseil National des Jeunes Élus du Bénin</h4>
+          <p class="tl-desc">Président depuis 2021. Formation des jeunes élus à la décentralisation, plaidoyer pour une meilleure inclusion des jeunes dans la gouvernance locale.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <h4 class="tl-title">🌍 Union Panafricaine de la Jeunesse (UPJ)</h4>
+          <p class="tl-desc">Point focal pour le Bénin. Participation active aux sommets continentaux pour la refondation de l'UPJ et la promotion des aspirations de la jeunesse africaine.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Citations -->
-<section id="citations" style="background:var(--navy)">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Philosophie</span>
-    <h2 class="section-title">Ce en quoi <em>je crois</em></h2>
-  </div>
-  <div class="quote-block reveal">
-    « Développer le Bénin par une gouvernance locale forte, une économie inclusive et une jeunesse engagée au service de la nation. » ✨
-  </div>
-  <div class="quote-block reveal" style="margin-top:2rem;">
-    « L'éducation ne se limite pas aux diplômes. Elle doit former des bâtisseurs, des entrepreneurs, des citoyens responsables. » 📚
+<div class="sep"></div>
+
+<!-- ══════ CITATIONS ══════ -->
+<section id="citations">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <div class="section-header rv">
+      <span class="eyebrow" style="color:var(--orange-pale);">Philosophie</span>
+      <h2 class="section-title on-dark">Ce en quoi <em>je crois</em></h2>
+    </div>
+    <div class="vision-quote rv">
+      « Développer le Bénin par une gouvernance locale forte, une économie inclusive et une jeunesse engagée au service de la nation. » ✨
+    </div>
+    <div class="vision-quote rv" style="margin-top:2rem;">
+      « L'éducation ne se limite pas aux diplômes. Elle doit former des bâtisseurs, des entrepreneurs, des citoyens responsables. » 📚
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<div class="sep-blue"></div>
+
+<!-- ══════ CTA ══════ -->
 <section id="cta">
-  <div class="reveal">
-    <p style="font-size:1.2rem; color:var(--ivory); margin-bottom:2rem;">🤝 Prêt à collaborer pour un Bénin meilleur ?</p>
-    <a href="contact.html" class="btn-primary">📩 Me contacter</a>
-    <a href="index.html" class="btn-outline">🏠 Retour à l'accueil</a>
+  <div class="container">
+    <div class="contact-box rv">
+      <span class="eyebrow">Collaboration</span>
+      <h2 class="section-title">Prêt à bâtir <em>ensemble</em> ? 🤝</h2>
+      <p>Vous avez un projet, une idée ou souhaitez simplement échanger sur l'avenir du Bénin ? Je suis à votre écoute.</p>
+      <div class="contact-btns">
+        <a href="contact.html" class="btn btn-royal">📬 Formulaire de contact</a>
+        <a href="index.html" class="btn btn-outline">🏠 Retour à l'accueil</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
-  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold);">Cyrille Ghislain Tohouenou</div>
-  <p style="color:var(--text-muted); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; margin-top:0.5rem;">Économiste · Expert International · Leader Politique</p>
+  <div class="footer-logo">Cyrille Ghislain <span>Tohouenou</span></div>
+  <p class="footer-tag">Économiste · Expert International · Leader Politique</p>
+  <div class="footer-div"></div>
   <div class="footer-links">
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="parcours.html">Parcours</a>
-    <a href="galerie.html">Galerie</a>
-    <a href="vision.html">Vision</a>
+    <a href="index.html">Accueil</a><a href="about.html">À propos</a>
+    <a href="parcours.html">Parcours</a><a href="blog.html">Actualités</a>
+    <a href="galerie.html">Galerie</a><a href="vision.html">Vision</a>
     <a href="contact.html">Contact</a>
   </div>
-  <div class="footer-contact-btns">
-    <a href="https://wa.me/2290164071465" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+  <div class="footer-btns">
+    <a href="https://wa.me/2290167549826" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
     <a href="https://wa.me/2290148715375" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
   </div>
-  <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir.</p>
+  <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir pour un Bénin émergent.</p>
 </footer>
 
 <script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loader').classList.add('hidden');
-    }, 2300);
-  });
-
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.12 });
-  revealElements.forEach(el => observer.observe(el));
-
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    const orb1 = document.querySelector('.orb1');
-    const orb2 = document.querySelector('.orb2');
-    if (orb1) orb1.style.transform = `translate(${x}px, ${y}px)`;
-    if (orb2) orb2.style.transform = `translate(${-x}px, ${-y}px)`;
-  });
+  window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),2400));
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+  function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+  function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.1});
+  document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>observer.observe(el));
+  if(window.innerWidth>1024){document.addEventListener('mousemove',e=>{const x=(e.clientX/window.innerWidth-.5)*18;const y=(e.clientY/window.innerHeight-.5)*18;const g1=document.querySelector('.g1');const g2=document.querySelector('.g2');if(g1)g1.style.transform=`translate(${x}px,${y}px)`;if(g2)g2.style.transform=`translate(${-x}px,${-y}px)`;},{passive:true});}
 </script>
-
 </body>
 </html>
