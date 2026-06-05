@@ -1,0 +1,14 @@
+# https://cyrilletohouenou.com/robots.txt
+User-agent: *
+Allow: /
+
+# Interdire l'accès aux dossiers sensibles (si existants)
+Disallow: /admin/
+Disallow: /assets/private/
+Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://cyrilletohouenou.com/sitemap.xml
+
+# Délai d'exploration (facultatif, respecté par certains robots)
+Crawl-delay: 2
