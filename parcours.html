@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parcours — Cyrille Ghislain Tohouenou | Expérience Professionnelle</title>
+  <meta name="description" content="Parcours professionnel complet de Cyrille Ghislain Tohouenou : DG AFRICAXI, Coordonnateur PPEJ, Assistant Ministre Sports, Président CONAJEB, Conseiller Communal."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+  :root {
+    --royal:       #1a3a8f;
+    --royal-dark:  #0f2460;
+    --royal-light: #2b52c4;
+    --orange:      #e08a1a;
+    --orange-vif:  #f09820;
+    --orange-pale: #f6c060;
+    --white:       #ffffff;
+    --off-white:   #f5f7fc;
+    --light-bg:    #eef2fb;
+    --text-dark:   #0d1e55;
+    --text-body:   #2c3e7a;
+    --text-muted:  #7282b0;
+    --border:      rgba(26,58,143,0.13);
+    --nav-h:       68px;
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Montserrat',sans-serif; background:var(--white); color:var(--text-dark); overflow-x:hidden; -webkit-text-size-adjust:100%; }
+  img  { display:block; max-width:100%; height:auto; }
+  a    { text-decoration:none; }
+
+  /* LOADER */
+  #loader { position:fixed; inset:0; z-index:9999; background:var(--royal-dark); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .8s ease,visibility .8s ease; }
+  #loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+  .ld-logo { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,3.6rem); color:var(--orange-vif); letter-spacing:.15em; opacity:0; animation:ldUp .8s ease .3s forwards; }
+  .ld-sub  { font-size:clamp(.6rem,2vw,.72rem); letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:.8rem; text-align:center; padding:0 1rem; opacity:0; animation:ldUp .8s ease .6s forwards; }
+  .ld-bar-wrap { width:min(200px,70vw); height:2px; background:rgba(240,152,32,.2); margin-top:2.5rem; overflow:hidden; }
+  .ld-bar { height:100%; background:var(--orange-vif); width:0; animation:ldBar 2s ease .9s forwards; }
+  @keyframes ldBar { to{width:100%} }
+  @keyframes ldUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; height:var(--nav-h); padding:0 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); transition:box-shadow .3s; }
+  nav.scrolled { box-shadow:0 4px 24px rgba(26,58,143,.09); }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--royal-dark); flex-shrink:0; }
+  .nav-logo span { color:var(--orange); }
+  .nav-links { display:flex; gap:1.6rem; list-style:none; align-items:center; }
+  .nav-links a { font-size:.68rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--text-body); transition:color .3s; white-space:nowrap; position:relative; padding-bottom:3px; }
+  .nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--orange); border-radius:2px; transform:scaleX(0); transition:transform .3s; }
+  .nav-links a:hover,.nav-links a.active { color:var(--royal); }
+  .nav-links a:hover::after,.nav-links a.active::after { transform:scaleX(1); }
+  .nav-cta { padding:.45rem 1.2rem !important; background:var(--royal); color:var(--white) !important; transition:background .3s !important; }
+  .nav-cta::after { display:none !important; }
+  .nav-cta:hover { background:var(--royal-light) !important; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px; flex-shrink:0; }
+  .hamburger span { width:24px; height:2px; background:var(--royal); border-radius:2px; transition:.3s; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .mobile-menu { position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:var(--white); z-index:199; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; transform:translateX(100%); transition:transform .38s ease; border-top:1px solid var(--border); overflow-y:auto; }
+  .mobile-menu.open { transform:translateX(0); }
+  .mobile-menu a { font-size:1.05rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dark); transition:color .3s; }
+  .mobile-menu a:hover { color:var(--orange); }
+  .mob-cta { padding:.75rem 2.5rem !important; background:var(--royal) !important; color:var(--white) !important; }
+
+  /* BOUTONS */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.82rem 1.8rem; font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; transition:all .3s; cursor:pointer; border:none; white-space:nowrap; }
+  .btn-royal  { background:var(--royal); color:var(--white); }
+  .btn-royal:hover  { background:var(--royal-light); transform:translateY(-3px); box-shadow:0 10px 26px rgba(26,58,143,.28); }
+  .btn-outline { background:transparent; color:var(--royal); border:2px solid var(--royal); }
+  .btn-outline:hover { background:var(--royal); color:var(--white); transform:translateY(-3px); }
+
+  /* UTILITAIRES */
+  section { padding:5rem 5%; }
+  .container { max-width:1100px; margin:0 auto; width:100%; }
+  .eyebrow { display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.32em; text-transform:uppercase; color:var(--orange); margin-bottom:.9rem; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.9rem); font-weight:400; color:var(--royal-dark); line-height:1.2; }
+  .section-title em { color:var(--orange); font-style:italic; }
+  .sep      { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--orange) 50%,transparent); opacity:.22; }
+  .sep-blue { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--royal) 50%,transparent); opacity:.14; }
+  .rv, .rv-l, .rv-r { opacity:0; transition:opacity .72s ease,transform .72s ease; }
+  .rv   { transform:translateY(26px); }
+  .rv-l { transform:translateX(-36px); }
+  .rv-r { transform:translateX(36px); }
+  .rv.on,.rv-l.on,.rv-r.on { opacity:1; transform:none; }
+
+  /* WA */
+  .wa-float { position:fixed; bottom:22px; right:22px; z-index:998; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:25px; box-shadow:0 5px 20px rgba(0,0,0,.22); transition:transform .3s; animation:waPulse 2.5s infinite; }
+  .wa-float:hover { transform:scale(1.1); }
+  @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+
+  /* ═══ HERO ═══ */
+  #parcours-hero { background:var(--royal-dark); padding-top:var(--nav-h); position:relative; overflow:hidden; }
+  .hero-pattern { position:absolute; inset:0; pointer-events:none; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px),repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 50px); }
+  .hero-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+  .g1 { width:clamp(240px,38vw,480px); height:clamp(240px,38vw,480px); background:rgba(240,152,32,.1); top:-15%; right:-8%; animation:gfloat 9s ease-in-out infinite; }
+  .g2 { width:clamp(180px,28vw,360px); height:clamp(180px,28vw,360px); background:rgba(43,82,196,.28); bottom:-10%; left:-6%; animation:gfloat 12s ease-in-out infinite reverse; }
+  @keyframes gfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-34px)} }
+  .hero-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; padding:5rem 5%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+  .hero-text { opacity:0; animation:hSlideL 1s ease .5s forwards; }
+  @keyframes hSlideL { from{opacity:0;transform:translateX(-44px)} to{opacity:1;transform:none} }
+  .hero-eyebrow-wrap { display:flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
+  .hero-eyebrow-line { width:42px; height:1px; background:var(--orange-vif); flex-shrink:0; }
+  .hero-eyebrow-txt  { font-size:.66rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--orange-pale); }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4.5vw,4.5rem); font-weight:300; color:var(--white); line-height:1.1; margin-bottom:.8rem; }
+  .hero-title strong { color:var(--orange-vif); font-weight:700; display:block; }
+  .hero-desc { font-size:clamp(.8rem,1.5vw,.9rem); line-height:1.9; color:rgba(255,255,255,.58); margin-top:1rem; max-width:460px; }
+
+  /* Photo hero */
+  .hero-photo { display:flex; justify-content:center; opacity:0; animation:hSlideR 1s ease .7s forwards; }
+  @keyframes hSlideR { from{opacity:0;transform:translateX(44px)} to{opacity:1;transform:none} }
+  .photo-frame { position:relative; width:min(320px,78vw); }
+  .photo-deco { position:absolute; inset:0; pointer-events:none; border:1px solid rgba(240,152,32,.3); }
+  .photo-deco-1 { transform:translate(12px,12px); }
+  .photo-deco-2 { transform:translate(22px,22px); border-color:rgba(240,152,32,.12); }
+  .photo-aspect { padding-bottom:125%; position:relative; }
+  .photo-box { position:absolute; inset:0; z-index:2; overflow:hidden; background:linear-gradient(135deg,#1a3a8f,#0f2460); }
+  .photo-box img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .6s; }
+  .photo-box:hover img { transform:scale(1.04); }
+  .photo-caption { position:absolute; bottom:0; left:0; right:0; z-index:3; padding:1.5rem; background:linear-gradient(transparent,rgba(10,20,60,.88)); }
+  .photo-tag { display:inline-block; padding:.28rem .85rem; background:var(--orange); color:var(--white); font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+  .corner { position:absolute; width:38px; height:38px; z-index:4; }
+  .corner.tl { top:-1px; left:-1px; border-top:3px solid var(--orange-vif); border-left:3px solid var(--orange-vif); }
+  .corner.br { bottom:-1px; right:-1px; border-bottom:3px solid var(--orange-vif); border-right:3px solid var(--orange-vif); }
+
+  /* ═══ PHOTOS STRIP ═══ */
+  #photos-strip { background:var(--off-white); padding:3rem 5%; }
+  .strip-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.7rem; max-width:1100px; margin:0 auto; }
+  .strip-item { overflow:hidden; position:relative; aspect-ratio:4/3; background:var(--light-bg); }
+  .strip-item img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .55s,filter .4s; filter:grayscale(8%); }
+  .strip-item:hover img { transform:scale(1.05); filter:grayscale(0); }
+  .strip-border { position:absolute; inset:0; border:2px solid transparent; transition:border-color .4s; pointer-events:none; }
+  .strip-item:hover .strip-border { border-color:var(--orange); }
+
+  /* ═══ TIMELINE ═══ */
+  #timeline { background:var(--white); }
+  .timeline-wrap { max-width:820px; margin:0 auto; position:relative; padding-left:2.5rem; }
+  .timeline-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(to bottom,var(--orange),var(--royal)); border-radius:3px; }
+
+  .tl-item { position:relative; margin-bottom:2rem; padding-left:1.8rem; }
+  .tl-item::before { content:''; position:absolute; left:-1.25rem; top:1.4rem; width:14px; height:14px; border-radius:50%; background:var(--orange); border:3px solid var(--white); box-shadow:0 0 0 2px var(--orange); z-index:1; transition:background .3s, box-shadow .3s; }
+  .tl-item:hover::before { background:var(--royal); box-shadow:0 0 0 2px var(--royal); }
+
+  /* Badge "En cours" */
+  .tl-item.current::before { background:var(--orange-vif); box-shadow:0 0 0 3px rgba(240,152,32,.3); animation:pulseDot 2s infinite; }
+  @keyframes pulseDot { 0%,100%{box-shadow:0 0 0 3px rgba(240,152,32,.3)} 50%{box-shadow:0 0 0 6px rgba(240,152,32,.1)} }
+
+  .tl-year-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--royal-dark); color:var(--white); font-size:.62rem; font-weight:700; letter-spacing:.1em; padding:.28rem .8rem; margin-bottom:.9rem; }
+  .tl-period { color:var(--orange-pale); font-size:.6rem; }
+
+  .tl-card { background:var(--off-white); border:1px solid var(--border); border-left:4px solid var(--orange); padding:1.5rem 1.8rem; transition:all .3s; }
+  .tl-card:hover { border-left-color:var(--royal); box-shadow:0 8px 28px rgba(26,58,143,.1); transform:translateX(4px); }
+  .tl-role { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--royal-dark); margin-bottom:.2rem; }
+  .tl-org  { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); margin-bottom:.7rem; }
+  .tl-desc { font-size:.8rem; line-height:1.8; color:var(--text-muted); }
+  .tl-desc ul { padding-left:1.2rem; margin-top:.4rem; }
+  .tl-desc li { margin-bottom:.3rem; }
+
+  /* Tag financement */
+  .tl-badge { display:inline-block; padding:.18rem .65rem; background:var(--light-bg); border:1px solid var(--border); font-size:.6rem; font-weight:700; color:var(--royal); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.6rem; }
+
+  /* ═══ COMPÉTENCES & LANGUES ═══ */
+  #competences { background:var(--off-white); }
+  .comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
+  .col-title { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:700; color:var(--royal-dark); margin-bottom:1.8rem; padding-bottom:.7rem; border-bottom:2px solid var(--orange); display:inline-block; }
+  .tags-wrap { display:flex; flex-wrap:wrap; gap:.55rem; }
+  .tag { padding:.4rem .95rem; border:1.5px solid var(--border); background:var(--white); color:var(--text-body); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; }
+  .tag:hover { border-color:var(--orange); color:var(--orange); background:rgba(224,138,26,.05); }
+  .langue-item { display:flex; align-items:center; gap:1rem; margin-bottom:1.1rem; }
+  .langue-nom  { width:110px; font-size:.82rem; font-weight:600; color:var(--text-dark); flex-shrink:0; }
+  .langue-bar  { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .langue-fill { height:100%; background:linear-gradient(90deg,var(--royal),var(--orange)); border-radius:3px; }
+  .langue-lvl  { font-size:.65rem; color:var(--text-muted); white-space:nowrap; flex-shrink:0; }
+
+  /* ═══ CTA ═══ */
+  #cta-section { background:var(--white); }
+  .cta-box { max-width:680px; margin:0 auto; text-align:center; padding:3.5rem 2rem; border:1px solid var(--border); box-shadow:0 8px 40px rgba(26,58,143,.07); position:relative; }
+  .cta-box::before { content:''; position:absolute; top:0; left:10%; right:10%; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); }
+  .cta-box p { font-size:.88rem; line-height:1.9; color:var(--text-body); margin:.8rem 0 2rem; }
+  .cta-btns { display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
+
+  /* FOOTER */
+  footer { background:var(--royal-dark); padding:3.5rem 5%; text-align:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:700; color:var(--white); }
+  .footer-logo span { color:var(--orange-vif); }
+  .footer-tag  { color:rgba(255,255,255,.4); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; margin-top:.4rem; }
+  .footer-div  { width:70px; height:2px; margin:1.5rem auto; background:linear-gradient(90deg,var(--royal-light),var(--orange)); }
+  .footer-links { display:flex; justify-content:center; gap:1.6rem; flex-wrap:wrap; margin-bottom:1.6rem; }
+  .footer-links a { color:rgba(255,255,255,.42); font-size:.68rem; letter-spacing:.11em; text-transform:uppercase; transition:color .3s; }
+  .footer-links a:hover { color:var(--orange-pale); }
+  .footer-btns { display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.6rem; }
+  .footer-btn  { display:inline-flex; align-items:center; gap:.4rem; padding:.55rem 1.3rem; border:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.72); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:all .3s; }
+  .footer-btn:hover { border-color:var(--orange); color:var(--orange-pale); }
+  .footer-copy { font-size:.66rem; color:rgba(255,255,255,.22); }
+
+  /* RESPONSIVE */
+  @media (max-width:1024px) {
+    .hero-inner { grid-template-columns:1fr; text-align:center; padding:3.5rem 5%; gap:2.5rem; }
+    .hero-text { order:2; } .hero-photo { order:1; }
+    .hero-eyebrow-wrap { justify-content:center; }
+    .hero-desc { margin:1rem auto 0; }
+    .photo-frame { width:min(280px,70vw); }
+    .comp-grid { grid-template-columns:1fr; gap:3rem; }
+    .strip-grid { grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:680px) {
+    :root { --nav-h:62px; }
+    .nav-links { display:none; } .hamburger { display:flex; }
+    section { padding:3.5rem 4%; }
+    #photos-strip { padding:2rem 4%; }
+    .hero-inner { padding:2.5rem 4% 3.5rem; gap:2rem; }
+    .photo-frame { width:min(240px,78vw); }
+    .strip-grid { grid-template-columns:1fr; }
+    .cta-btns .btn { width:100%; }
+    .footer-btns { flex-direction:column; align-items:center; }
+    .footer-btn  { width:100%; max-width:280px; justify-content:center; }
+  }
+  @media (max-width:380px) { .photo-frame { width:85vw; } }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-logo">C.G. TOHOUENOU</div>
+  <div class="ld-sub">Parcours professionnel 📋</div>
+  <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
+</div>
+
+<!-- WA -->
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou" target="_blank" rel="noopener">💬</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">CGT<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="parcours.html" class="active">Parcours</a></li>
+    <li><a href="blog.html">Actualités</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html"    onclick="closeMenu()">Accueil</a>
+  <a href="about.html"    onclick="closeMenu()">À propos</a>
+  <a href="parcours.html" onclick="closeMenu()">Parcours</a>
+  <a href="blog.html"     onclick="closeMenu()">Actualités</a>
+  <a href="galerie.html"  onclick="closeMenu()">Galerie</a>
+  <a href="vision.html"   onclick="closeMenu()">Vision</a>
+  <a href="contact.html"  onclick="closeMenu()" class="mob-cta">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="parcours-hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow-wrap">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-txt">12+ années d'expérience 🇧🇯</span>
+      </div>
+      <h1 class="hero-title">Parcours <strong>Professionnel</strong></h1>
+      <p class="hero-desc">De la FNEB à la direction d'AFRICAXI, en passant par le Ministère des Sports, le CONAJEB et la Mairie de Klouékanmè — un parcours d'exception au service du Bénin et de l'Afrique.</p>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <div class="photo-deco photo-deco-1"></div>
+        <div class="photo-deco photo-deco-2"></div>
+        <div class="photo-aspect">
+          <div class="photo-box">
+            <img src="aph.jpg" alt="Cyrille Ghislain Tohouenou" onerror="this.style.display='none'"/>
+            <div class="photo-caption"><span class="photo-tag">Leader en action</span></div>
+          </div>
+        </div>
+        <div class="corner tl"></div>
+        <div class="corner br"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PHOTOS STRIP -->
+<div id="photos-strip">
+  <div class="strip-grid rv">
+    <div class="strip-item">
+      <img src="bph.jpg" alt="Cyrille Tohouenou" onerror="this.style.background='var(--light-bg)'"/>
+      <div class="strip-border"></div>
+    </div>
+    <div class="strip-item">
+      <img src="cph.jpg" alt="Cyrille Tohouenou" onerror="this.style.background='var(--light-bg)'"/>
+      <div class="strip-border"></div>
+    </div>
+  </div>
+</div>
+
+<div class="sep-blue"></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="rv">
+      <span class="eyebrow">Expérience professionnelle</span>
+      <h2 class="section-title">Chronologie <em>détaillée</em></h2>
+    </div>
+
+    <div class="timeline-wrap">
+
+      <!-- 1 - AFRICAXI -->
+      <div class="tl-item current rv">
+        <div class="tl-year-badge">2024 <span class="tl-period">— à ce jour</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Directeur Général — AFRICAXI 🚀</div>
+          <div class="tl-org">Lomé, Togo | Cotonou, Bénin (depuis mars 2026)</div>
+          <div class="tl-desc">
+            Direction générale et pilotage stratégique du groupe AFRICAXI dans ses différents pôles d'activités (digital, e-commerce, formation, communication, conseil et commerce général).
+            <ul>
+              <li>Supervision de l'expansion opérationnelle du groupe au Bénin et structuration de son positionnement régional en Afrique de l'Ouest</li>
+              <li>Conception et mise en œuvre de solutions de transformation digitale appliquées aux économies locales</li>
+              <li>Pilotage d'un programme de digitalisation des marchés traditionnels</li>
+              <li>Encadrement des équipes et développement de partenariats techniques et commerciaux</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 - PPEJ -->
+      <div class="tl-item rv" style="transition-delay:.08s">
+        <div class="tl-year-badge">Janv. 2022 <span class="tl-period">— Déc. 2024</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Coordonnateur National — Programme de Promotion de l'Entrepreneuriat des Jeunes (PPEJ) 🎯</div>
+          <div class="tl-org">CONFEJES &amp; État Béninois</div>
+          <div class="tl-badge">Programme financé par la Conférence des Ministres de la Jeunesse et des Sports de la Francophonie</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Coordination générale et pilotage stratégique du programme de promotion de l'entrepreneuriat des jeunes</li>
+              <li>Mise en œuvre des activités d'accompagnement à la création et au développement d'entreprises (formation, coaching, suivi)</li>
+              <li>Encadrement de jeunes porteurs de projets et appui à la structuration de leurs initiatives économiques</li>
+              <li>Gestion des relations avec les partenaires institutionnels et techniques</li>
+              <li>Suivi-évaluation des activités, reporting et gestion des résultats du programme</li>
+              <li>Contribution aux politiques publiques de promotion de l'emploi et de l'auto-emploi des jeunes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 - CONAJEB -->
+      <div class="tl-item current rv" style="transition-delay:.16s">
+        <div class="tl-year-badge">Juin 2021 <span class="tl-period">— à ce jour</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Président du CONAJEB &amp; Point Focal UPJ/Bénin 🌍</div>
+          <div class="tl-org">Conseil National des Jeunes Élus du Bénin</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Coordination nationale des jeunes élus locaux et représentation institutionnelle auprès des autorités et partenaires techniques</li>
+              <li>Participation à plus de 20 missions internationales sur la gouvernance, la décentralisation et les politiques de jeunesse</li>
+              <li>Représentation du Bénin dans des cadres internationaux liés à la jeunesse et au développement local (ONU, CEA, Union Africaine)</li>
+              <li>Animation de réseaux de jeunes élus et renforcement des capacités en leadership et gouvernance territoriale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 - MINISTRE SPORTS -->
+      <div class="tl-item rv" style="transition-delay:.24s">
+        <div class="tl-year-badge">Févr. 2021 <span class="tl-period">— Sept. 2023</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Assistant du Ministre des Sports du Bénin 🏆</div>
+          <div class="tl-org">Gouvernement du Bénin — Cotonou</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Participation aux réunions stratégiques du ministère et contribution aux orientations opérationnelles des programmes nationaux</li>
+              <li>Rédaction de communications institutionnelles, notes techniques et documents stratégiques</li>
+              <li>Supervision des programmes nationaux de développement du sport (classes sportives, championnats scolaires et jeux universitaires)</li>
+              <li>Coordination par intérim du Championnat du Monde de Pétanque organisé au Bénin — performances historiques de l'équipe nationale (champion et vice-champion dans deux catégories)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 - CONSEILLER COMMUNAL -->
+      <div class="tl-item rv" style="transition-delay:.32s">
+        <div class="tl-year-badge">Mai 2020 <span class="tl-period">— Janv. 2026</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Conseiller Communal 🏛️</div>
+          <div class="tl-org">Commune de Klouékanmè — Couffo</div>
+          <div class="tl-desc">
+            Président de la Commission des Affaires Économiques et Financières · Président de la Commission Coopération et Relations avec les Institutions · Membre du Conseil Départemental de Concertation et de Coordination du Couffo.
+            <ul>
+              <li>Participation à la gouvernance et aux décisions stratégiques de la commune</li>
+              <li>Supervision des finances locales et contribution à l'orientation du budget communal</li>
+              <li>Contribution au développement économique local à travers les filières agricoles et commerciales</li>
+              <li>Renforcement des partenariats institutionnels et de la coopération pour le développement communal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 - RADIO COUFFO FM -->
+      <div class="tl-item rv" style="transition-delay:.4s">
+        <div class="tl-year-badge">2017 <span class="tl-period">— 2020</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Directeur Général — Radio COUFFO FM 🎙️</div>
+          <div class="tl-org">Adjahonmey, Klouékanmè</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Management d'une équipe de 22 journalistes et personnels techniques</li>
+              <li>Supervision de la ligne éditoriale, des programmes et des activités de diffusion</li>
+              <li>Signature et exécution de plus de 150 contrats de communication et de partenariat</li>
+              <li>Initiation et organisation de forums radiophoniques de sensibilisation et de débat public</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 - AFRI-COM CONSULTING -->
+      <div class="tl-item rv" style="transition-delay:.48s">
+        <div class="tl-year-badge">2019</div>
+        <div class="tl-card">
+          <div class="tl-role">Promoteur &amp; Directeur Général — AFRI-COM CONSULTING 📣</div>
+          <div class="tl-org">Bénin</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Création et direction d'une agence de communication institutionnelle, production de supports et prestations intellectuelles</li>
+              <li>Conception et mise en œuvre de campagnes de communication pour des institutions publiques et organisations internationales</li>
+              <li>Exécution de contrats de communication et de consultance avec des ministères et partenaires techniques (dont la GIZ)</li>
+              <li>Gestion et administration — 8 employés</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 - TIC -->
+      <div class="tl-item rv" style="transition-delay:.56s">
+        <div class="tl-year-badge">2014 <span class="tl-period">— 2016</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Chargé des Multimédias &amp; Réseaux Sociaux 📱</div>
+          <div class="tl-org">Ministère de la Communication et des TIC — Bénin</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Gestion et animation des plateformes numériques et réseaux sociaux institutionnels du ministère</li>
+              <li>Contribution à la stratégie de communication digitale gouvernementale</li>
+              <li>Production et diffusion de contenus multimédias institutionnels</li>
+              <li>Participation à la modernisation de la communication institutionnelle via les outils numériques</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 - CARITAS -->
+      <div class="tl-item rv" style="transition-delay:.64s">
+        <div class="tl-year-badge">Janv. 2013 <span class="tl-period">— Juin 2015</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Assistant — Projets Humanitaires 🤲</div>
+          <div class="tl-org">Caritas Bénin</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Appui à la conception, analyse et mise en œuvre de projets humanitaires et sociaux</li>
+              <li>Coordination des interventions d'urgence — inondations au Bénin (2013)</li>
+              <li>Mobilisation de ressources pour le financement des actions d'assistance aux populations vulnérables</li>
+              <li>Contribution à la rédaction de rapports d'exécution, de suivi et d'évaluation des projets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 - STAGE -->
+      <div class="tl-item rv" style="transition-delay:.72s">
+        <div class="tl-year-badge">Janv. 2012 <span class="tl-period">— Juin 2012</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Stagiaire — Direction Générale des Politiques de Développement 📊</div>
+          <div class="tl-org">Ministère du Développement et du Plan — Bénin</div>
+          <div class="tl-desc">Analyse et élaboration des politiques publiques de développement, suivi de la Stratégie de Croissance pour la Réduction de la Pauvreté (SCRP 2011-2015).</div>
+        </div>
+      </div>
+
+      <!-- 11 - FNEB -->
+      <div class="tl-item rv" style="transition-delay:.8s">
+        <div class="tl-year-badge">Juil. 2009 <span class="tl-period">— Juin 2012</span></div>
+        <div class="tl-card">
+          <div class="tl-role">Responsable Étudiant — FNEB 🎓</div>
+          <div class="tl-org">Fédération Nationale des Étudiants du Bénin</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Évolution progressive de responsabilités, du bureau d'union d'entités au Conseil central fédéral</li>
+              <li>Point focal à l'Université d'Abomey-Calavi pour le Forum social mondial de Dakar 2011</li>
+              <li>Coordination et encadrement d'une délégation de 25 étudiants</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sep-blue"></div>
+
+<!-- COMPÉTENCES & LANGUES -->
+<section id="competences">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="rv">
+      <span class="eyebrow">Atouts</span>
+      <h2 class="section-title">Compétences <em>&amp; Langues</em></h2>
+    </div>
+    <div class="comp-grid">
+      <div class="rv-l">
+        <span class="col-title">Compétences transversales</span>
+        <div class="tags-wrap">
+          <span class="tag">Management de projets internationaux</span>
+          <span class="tag">Gouvernance participative</span>
+          <span class="tag">Transformation digitale</span>
+          <span class="tag">Engagement civique jeunesse</span>
+          <span class="tag">Politiques publiques</span>
+          <span class="tag">Mobilisation de ressources</span>
+          <span class="tag">Coopération internationale</span>
+          <span class="tag">Communication institutionnelle</span>
+          <span class="tag">Leadership &amp; Management</span>
+          <span class="tag">Finance locale</span>
+          <span class="tag">Entrepreneuriat</span>
+          <span class="tag">Suivi-évaluation</span>
+        </div>
+      </div>
+      <div class="rv-r">
+        <span class="col-title">Langues maîtrisées</span>
+        <div class="langue-item">
+          <span class="langue-nom">Français</span>
+          <div class="langue-bar"><div class="langue-fill" style="width:100%"></div></div>
+          <span class="langue-lvl">Natif</span>
+        </div>
+        <div class="langue-item">
+          <span class="langue-nom">Anglais</span>
+          <div class="langue-bar"><div class="langue-fill" style="width:70%"></div></div>
+          <span class="langue-lvl">Courant</span>
+        </div>
+        <div class="langue-item">
+          <span class="langue-nom">Fon</span>
+          <div class="langue-bar"><div class="langue-fill" style="width:90%"></div></div>
+          <span class="langue-lvl">Courant</span>
+        </div>
+        <div class="langue-item">
+          <span class="langue-nom">Adja</span>
+          <div class="langue-bar"><div class="langue-fill" style="width:85%"></div></div>
+          <span class="langue-lvl">Courant</span>
+        </div>
+        <div class="langue-item">
+          <span class="langue-nom">Mina / Goun</span>
+          <div class="langue-bar"><div class="langue-fill" style="width:75%"></div></div>
+          <span class="langue-lvl">Bon niveau</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CTA -->
+<section id="cta-section">
+  <div class="container">
+    <div class="cta-box rv">
+      <span class="eyebrow">Aller plus loin</span>
+      <h2 class="section-title" style="margin-bottom:.5rem;">Découvrez mes <em>engagements</em> 📸</h2>
+      <p>Consultez la galerie ou contactez-moi directement.</p>
+      <div class="cta-btns">
+        <a href="galerie.html" class="btn btn-royal">🖼️ Voir la galerie</a>
+        <a href="contact.html" class="btn btn-outline">📩 Me contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cyrille Ghislain <span>Tohouenou</span></div>
+  <p class="footer-tag">Économiste · Expert International · Leader Politique</p>
+  <div class="footer-div"></div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a><a href="about.html">À propos</a>
+    <a href="parcours.html">Parcours</a><a href="blog.html">Actualités</a>
+    <a href="galerie.html">Galerie</a><a href="vision.html">Vision</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-btns">
+    <a href="https://wa.me/2290167549826" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+    <a href="https://wa.me/2290148715375" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
+  </div>
+  <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir pour un Bénin émergent.</p>
+</footer>
+
+<script>
+  window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),2400));
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+  function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+  function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.08});
+  document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>observer.observe(el));
+  if(window.innerWidth>1024){document.addEventListener('mousemove',e=>{const x=(e.clientX/window.innerWidth-.5)*18;const y=(e.clientY/window.innerHeight-.5)*18;const g1=document.querySelector('.g1');const g2=document.querySelector('.g2');if(g1)g1.style.transform=`translate(${x}px,${y}px)`;if(g2)g2.style.transform=`translate(${-x}px,${-y}px)`;},{passive:true});}
+</script>
+</body>
+</html>
