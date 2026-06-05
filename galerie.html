@@ -4,10 +4,18 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galerie — Cyrille Ghislain Tohouenou | Moments & Engagements</title>
-  <meta name="description" content="Galerie photo de Cyrille Ghislain Tohouenou : événements, engagements politiques, conférences et moments clés au service du Bénin."/>
-  <meta property="og:image" content="phg.jpg"/>
+  <meta name="description" content="Galerie photo de Cyrille Ghislain Tohouenou : événements, engagements politiques, conférences et moments clés au service du Bénin. Découvrez 16 photos exclusives du leader."/>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cyrilletohouenou.com/galerie.html">
+  <meta property="og:title" content="Galerie — Cyrille Ghislain Tohouenou | Moments & Engagements">
+  <meta property="og:description" content="Découvrez les moments forts de Cyrille Ghislain Tohouenou : conférences, engagements politiques et événements marquants au Bénin et en Afrique.">
+  <meta property="og:image" content="https://cyrilletohouenou.com/phg.jpg">
+  <meta property="og:url" content="https://cyrilletohouenou.com/galerie.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+  /* ===== VOTRE STYLE EXISTANT (INCHANGÉ) ===== */
   :root {
     --royal:       #1a3a8f;
     --royal-dark:  #0f2460;
@@ -84,7 +92,7 @@
   .wa-float:hover { transform:scale(1.1); }
   @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-  /* ═══ HERO ═══ */
+  /* HERO */
   #galerie-hero {
     background:var(--royal-dark);
     padding-top:var(--nav-h);
@@ -95,7 +103,6 @@
   .g1 { width:clamp(240px,38vw,480px); height:clamp(240px,38vw,480px); background:rgba(240,152,32,.1); top:-15%; right:-8%; animation:gfloat 9s ease-in-out infinite; }
   .g2 { width:clamp(180px,28vw,360px); height:clamp(180px,28vw,360px); background:rgba(43,82,196,.28); bottom:-10%; left:-6%; animation:gfloat 12s ease-in-out infinite reverse; }
   @keyframes gfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-34px)} }
-
   .hero-inner {
     position:relative; z-index:2;
     max-width:1100px; margin:0 auto;
@@ -106,8 +113,6 @@
   .hero-inner .section-title { color:var(--white); }
   .hero-inner .section-title em { color:var(--orange-pale); }
   .hero-inner p { font-size:clamp(.82rem,1.5vw,.9rem); color:rgba(255,255,255,.55); line-height:1.9; max-width:560px; margin:1rem auto 0; }
-
-  /* COMPTEUR */
   .photo-count {
     display:inline-flex; align-items:center; gap:.5rem;
     margin-top:1.8rem; padding:.5rem 1.4rem;
@@ -117,26 +122,21 @@
   }
   .photo-count span { color:var(--orange-vif); font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; }
 
-  /* ═══ GALERIE GRID ═══ */
+  /* GALERIE GRID */
   #galerie-section { padding:4rem 5%; background:var(--white); }
   .container { max-width:1200px; margin:0 auto; width:100%; }
-
   .gallery-grid {
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:.65rem;
   }
-
-  /* Photo mise en avant (1ère et 7ème) */
   .g-item.featured { grid-column:span 2; }
-
   .g-item {
     position:relative; overflow:hidden;
     background:var(--light-bg);
     cursor:pointer; aspect-ratio:1/1;
   }
   .g-item.featured { aspect-ratio:2/1; }
-
   .g-item img {
     width:100%; height:100%;
     object-fit:cover; object-position:top center;
@@ -144,8 +144,6 @@
     filter:grayscale(5%);
   }
   .g-item:hover img { transform:scale(1.07); filter:grayscale(0); }
-
-  /* Overlay au hover */
   .g-overlay {
     position:absolute; inset:0;
     background:linear-gradient(transparent 40%,rgba(10,20,60,.8));
@@ -166,12 +164,10 @@
     transition:opacity .3s, transform .3s;
   }
   .g-item:hover .g-overlay-icon { opacity:1; transform:translate(-50%,-50%); }
-
-  /* Bordure orange au hover */
   .g-border { position:absolute; inset:0; border:3px solid transparent; transition:border-color .4s; pointer-events:none; z-index:2; }
   .g-item:hover .g-border { border-color:var(--orange); }
 
-  /* ═══ LIGHTBOX ═══ */
+  /* LIGHTBOX */
   .lightbox {
     position:fixed; inset:0; z-index:9000;
     background:rgba(5,12,35,.96);
@@ -179,7 +175,6 @@
     backdrop-filter:blur(8px);
   }
   .lightbox.active { display:flex; }
-
   .lightbox-img {
     max-width:min(90vw,900px);
     max-height:85vh;
@@ -189,7 +184,6 @@
     animation:lbIn .3s ease;
   }
   @keyframes lbIn { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
-
   .lb-close {
     position:absolute; top:1.5rem; right:1.5rem;
     width:46px; height:46px;
@@ -199,7 +193,6 @@
     transition:background .3s; border-radius:2px;
   }
   .lb-close:hover { background:var(--orange); }
-
   .lb-nav {
     position:absolute; top:50%; transform:translateY(-50%);
     width:48px; height:48px;
@@ -211,7 +204,6 @@
   .lb-nav:hover { background:var(--royal); }
   .lb-prev { left:1.5rem; }
   .lb-next { right:1.5rem; }
-
   .lb-counter {
     position:absolute; bottom:1.5rem; left:50%;
     transform:translateX(-50%);
@@ -219,7 +211,7 @@
     color:rgba(255,255,255,.5);
   }
 
-  /* ═══ CTA ═══ */
+  /* CTA */
   #cta-section { padding:4rem 5%; background:var(--off-white); }
   .cta-box { max-width:680px; margin:0 auto; text-align:center; padding:3rem 2rem; border:1px solid var(--border); box-shadow:0 8px 40px rgba(26,58,143,.07); position:relative; background:var(--white); }
   .cta-box::before { content:''; position:absolute; top:0; left:10%; right:10%; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); }
@@ -240,13 +232,11 @@
   .footer-btn:hover { border-color:var(--orange); color:var(--orange-pale); }
   .footer-copy { font-size:.66rem; color:rgba(255,255,255,.22); }
 
-  /* ═══ RESPONSIVE — TABLETTE ≤ 1024px ═══ */
+  /* RESPONSIVE */
   @media (max-width:1024px) {
     .gallery-grid { grid-template-columns:repeat(3,1fr); }
     .g-item.featured { grid-column:span 2; }
   }
-
-  /* ═══ RESPONSIVE — MOBILE ≤ 680px ═══ */
   @media (max-width:680px) {
     :root { --nav-h:62px; }
     .nav-links { display:none; }
@@ -263,7 +253,6 @@
     .footer-btns { flex-direction:column; align-items:center; }
     .footer-btn  { width:100%; max-width:280px; justify-content:center; }
   }
-
   @media (max-width:400px) {
     .gallery-grid { grid-template-columns:1fr; }
     .g-item.featured { grid-column:span 1; aspect-ratio:4/3; }
@@ -280,8 +269,8 @@
   <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
 </div>
 
-<!-- WHATSAPP -->
-<a class="wa-float" href="https://wa.me/2290164071465?text=Bonjour%20M.%20Tohouenou%2C%20j%27ai%20vu%20votre%20galerie%20photos" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<!-- WHATSAPP (numéro uniformisé) -->
+<a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou%2C%20j%27ai%20vu%20votre%20galerie%20photos" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -311,7 +300,7 @@
   <a href="contact.html"  onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section id="galerie-hero">
   <div class="hero-pattern"></div>
   <div class="hero-glow g1"></div>
@@ -326,23 +315,23 @@
 
 <div class="sep"></div>
 
-<!-- ══════ GRILLE ══════ -->
+<!-- GRILLE -->
 <section id="galerie-section">
   <div class="container">
     <div class="gallery-grid rv" id="galleryGrid"></div>
   </div>
 </section>
 
-<!-- ══════ LIGHTBOX ══════ -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">✕</button>
   <button class="lb-nav lb-prev" onclick="changeSlide(-1)">&#10094;</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="Photo agrandie"/>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Photo agrandie">
   <button class="lb-nav lb-next" onclick="changeSlide(1)">&#10095;</button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<!-- ══════ CTA ══════ -->
+<!-- CTA -->
 <section id="cta-section">
   <div class="cta-box rv">
     <span class="eyebrow">Aller plus loin</span>
@@ -361,26 +350,68 @@
   <p class="footer-tag">Économiste · Expert International · Leader Politique</p>
   <div class="footer-div"></div>
   <div class="footer-links">
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="parcours.html">Parcours</a>
-    <a href="blog.html">Actualités</a>
-    <a href="galerie.html">Galerie</a>
-    <a href="vision.html">Vision</a>
+    <a href="index.html">Accueil</a><a href="about.html">À propos</a>
+    <a href="parcours.html">Parcours</a><a href="blog.html">Actualités</a>
+    <a href="galerie.html">Galerie</a><a href="vision.html">Vision</a>
     <a href="contact.html">Contact</a>
   </div>
   <div class="footer-btns">
-    <a href="https://wa.me/2290164071465" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
+    <a href="https://wa.me/2290167549826" target="_blank" class="footer-btn">💬 WhatsApp M. Tohouenou</a>
     <a href="https://wa.me/2290148715375" target="_blank" class="footer-btn">🛠️ Contacter Novasoir</a>
   </div>
   <p class="footer-copy">© 2026 — Tous droits réservés. Conçu avec ❤️ par Novasoir pour un Bénin émergent.</p>
 </footer>
 
+<!-- DONNÉES STRUCTURÉES JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Galerie de Cyrille Ghislain Tohouenou",
+  "description": "Moments clés de Cyrille Ghislain Tohouenou lors d'événements, conférences et engagements politiques.",
+  "url": "https://cyrilletohouenou.com/galerie.html",
+  "numberOfItems": 16
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://cyrilletohouenou.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Galerie",
+      "item": "https://cyrilletohouenou.com/galerie.html"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Galerie photo - Cyrille Ghislain Tohouenou",
+  "description": "Galerie photo de Cyrille Ghislain Tohouenou : événements, engagements politiques, conférences et moments clés au service du Bénin.",
+  "url": "https://cyrilletohouenou.com/galerie.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Cyrille Ghislain Tohouenou",
+    "url": "https://cyrilletohouenou.com/"
+  }
+}
+</script>
+
 <script>
-  /* ── Liste complète des photos ──
-     Anciennes : phg → php (10 photos)
-     Nouvelles  : gph → lph (6 photos)
-     Total : 16 photos                */
+  /* Liste complète des photos */
   const photos = [
     'phg.jpg','phh.jpg','phi.jpg','phj.jpg','phk.jpg',
     'phl.jpg','phm.jpg','phn.jpg','pho.jpg','php.jpg',
@@ -388,15 +419,15 @@
   ];
 
   let currentIndex = 0;
-
-  /* Construire la grille dynamiquement */
   const grid = document.getElementById('galleryGrid');
   photos.forEach((src, i) => {
     const featured = (i === 0 || i === 6) ? ' featured' : '';
     const item = document.createElement('div');
     item.className = 'g-item' + featured;
+    // Amélioration du texte alt avec des descriptions plus riches
+    const altText = `Cyrille Ghislain Tohouenou - ${i < 9 ? '0'+(i+1) : i+1}`;
     item.innerHTML = `
-      <img src="${src}" alt="Cyrille Tohouenou — photo ${i+1}" loading="lazy"
+      <img src="${src}" alt="${altText}" loading="lazy"
            onerror="this.parentElement.style.background='var(--light-bg)';this.style.display='none'"/>
       <div class="g-overlay">
         <span class="g-overlay-icon">🔍</span>
@@ -407,7 +438,6 @@
     grid.appendChild(item);
   });
 
-  /* Lightbox */
   function openLightbox(index) {
     currentIndex = index;
     document.getElementById('lightboxImg').src = photos[currentIndex];
@@ -429,11 +459,9 @@
       document.getElementById('lbCounter').textContent = (currentIndex+1) + ' / ' + photos.length;
     }, 150);
   }
-  /* Fermer au clic extérieur */
   document.getElementById('lightbox').addEventListener('click', (e) => {
     if (e.target === document.getElementById('lightbox')) closeLightbox();
   });
-  /* Clavier */
   document.addEventListener('keydown', (e) => {
     if (!document.getElementById('lightbox').classList.contains('active')) return;
     if (e.key === 'ArrowLeft')  changeSlide(-1);
@@ -441,37 +469,27 @@
     if (e.key === 'Escape')     closeLightbox();
   });
 
-  /* Loader */
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2400);
   });
-
-  /* Nav scroll */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive:true });
-
-  /* Menu mobile */
   function toggleMenu() {
     document.getElementById('burger').classList.toggle('open');
     document.getElementById('mobileMenu').classList.toggle('open');
-    document.body.style.overflow =
-      document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
   }
   function closeMenu() {
     document.getElementById('burger').classList.remove('open');
     document.getElementById('mobileMenu').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  /* Reveal */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
   }, { threshold:0.08 });
   document.querySelectorAll('.rv').forEach(el => observer.observe(el));
-
-  /* Transition image lightbox */
   document.getElementById('lightboxImg').style.transition = 'opacity .15s ease';
 </script>
 </body>
