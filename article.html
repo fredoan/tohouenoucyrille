@@ -18,7 +18,6 @@
   <meta name="twitter:image" id="twitterImage" content="https://cyrilletohouenou.com/pha.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-  /* ===== VOTRE STYLE EXISTANT (INCHANGÉ) ===== */
   :root {
     --royal:       #1a3a8f;
     --royal-dark:  #0f2460;
@@ -41,7 +40,6 @@
   img  { display:block; max-width:100%; height:auto; }
   a    { text-decoration:none; }
 
-  /* LOADER */
   #loader { position:fixed; inset:0; z-index:9999; background:var(--royal-dark); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .8s ease,visibility .8s ease; }
   #loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
   .ld-logo { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,3.6rem); color:var(--orange-vif); letter-spacing:.15em; opacity:0; animation:ldUp .8s ease .3s forwards; }
@@ -51,7 +49,6 @@
   @keyframes ldBar { to{width:100%} }
   @keyframes ldUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 
-  /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:200; height:var(--nav-h); padding:0 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); transition:box-shadow .3s; }
   nav.scrolled { box-shadow:0 4px 24px rgba(26,58,143,.09); }
   .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--royal-dark); flex-shrink:0; }
@@ -75,18 +72,15 @@
   .mobile-menu a:hover { color:var(--orange); }
   .mob-cta { padding:.75rem 2.5rem !important; background:var(--royal) !important; color:var(--white) !important; }
 
-  /* CHARGEMENT */
   #loadingWrap { min-height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; color:var(--text-muted); padding-top:var(--nav-h); }
   .spinner { width:40px; height:40px; border:3px solid var(--border); border-top-color:var(--royal); border-radius:50%; animation:spin .8s linear infinite; }
   @keyframes spin { to{transform:rotate(360deg)} }
 
   #articleWrap { display:none; }
 
-  /* COVER */
   .art-cover { width:100%; max-height:500px; object-fit:cover; object-position:top; margin-top:var(--nav-h); display:block; }
   .cover-placeholder { width:100%; height:280px; margin-top:var(--nav-h); background:linear-gradient(135deg,var(--royal-dark),var(--royal-light)); display:flex; align-items:center; justify-content:center; font-size:4rem; }
 
-  /* HEADER ARTICLE */
   .art-header { max-width:820px; margin:0 auto; padding:3rem 5% 1.5rem; }
   .breadcrumb { font-size:.66rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1.5rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
   .breadcrumb a { color:var(--royal); transition:color .3s; }
@@ -108,10 +102,8 @@
   .art-meta span { font-size:.74rem; color:var(--text-muted); display:flex; align-items:center; gap:.35rem; }
   .art-meta .author { color:var(--royal); font-weight:700; }
 
-  /* BARRE DE LECTURE */
   #readProgress { position:fixed; top:var(--nav-h); left:0; height:3px; background:linear-gradient(90deg,var(--royal),var(--orange)); width:0%; z-index:199; transition:width .1s linear; }
 
-  /* CONTENU */
   .art-body { max-width:820px; margin:0 auto; padding:0 5% 3rem; }
   .art-content { font-size:1rem; line-height:1.95; color:var(--text-body); }
   .art-content h2 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--royal-dark); margin:2.2rem 0 .8rem; }
@@ -124,19 +116,16 @@
   .art-content strong { color:var(--royal-dark); font-weight:700; }
   .art-content a { color:var(--royal); text-decoration:underline; }
 
-  /* PARTAGE */
   .share-bar { max-width:820px; margin:0 auto; padding:1.8rem 5%; border-top:1px solid var(--border); display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; }
   .share-label { font-size:.68rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--text-muted); }
   .share-btn { display:inline-flex; align-items:center; gap:.4rem; padding:.5rem 1.1rem; border:1.5px solid var(--border); background:var(--white); color:var(--text-body); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; cursor:pointer; font-family:'Montserrat',sans-serif; }
   .share-btn:hover { background:var(--royal); color:var(--white); border-color:var(--royal); }
   .share-btn.wa:hover { background:#25D366; border-color:#25D366; }
 
-  /* RETOUR */
   .back-wrap { max-width:820px; margin:0 auto; padding:0 5% 3rem; }
   .back-btn { display:inline-flex; align-items:center; gap:.6rem; padding:.75rem 1.6rem; background:var(--royal); color:var(--white); font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; transition:all .3s; }
   .back-btn:hover { background:var(--royal-light); transform:translateY(-2px); }
 
-  /* ARTICLES SIMILAIRES */
   .related { background:var(--off-white); padding:4rem 5%; }
   .related-title { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--royal-dark); text-align:center; margin-bottom:2rem; }
   .related-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
@@ -148,10 +137,8 @@
   .related-card-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:var(--royal-dark); line-height:1.3; }
   .related-card-date  { font-size:.66rem; color:var(--text-muted); margin-top:.4rem; }
 
-  /* SEP */
   .sep { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--orange) 50%,transparent); opacity:.22; }
 
-  /* FOOTER */
   footer { background:var(--royal-dark); padding:3.5rem 5%; text-align:center; }
   .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:700; color:var(--white); }
   .footer-logo span { color:var(--orange-vif); }
@@ -165,12 +152,10 @@
   .footer-btn:hover { border-color:var(--orange); color:var(--orange-pale); }
   .footer-copy { font-size:.66rem; color:rgba(255,255,255,.22); }
 
-  /* WA */
   .wa-float { position:fixed; bottom:22px; right:22px; z-index:998; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:25px; box-shadow:0 5px 20px rgba(0,0,0,.22); transition:transform .3s; animation:waPulse 2.5s infinite; }
   .wa-float:hover { transform:scale(1.1); }
   @keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)} 70%{box-shadow:0 0 0 13px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-  /* RESPONSIVE */
   @media (max-width:1024px) { .related-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:680px) {
     :root { --nav-h:62px; }
@@ -187,20 +172,16 @@
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="ld-logo">C.G. TOHOUENOU</div>
   <div class="ld-sub">Chargement…</div>
   <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
 </div>
 
-<!-- Barre de lecture -->
 <div id="readProgress"></div>
 
-<!-- WA (numéro uniformisé) -->
 <a class="wa-float" href="https://wa.me/2290167549826?text=Bonjour%20M.%20Tohouenou" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">CGT<span>.</span></a>
   <ul class="nav-links">
@@ -224,13 +205,11 @@
   <a href="contact.html"  onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<!-- CHARGEMENT -->
 <div id="loadingWrap">
   <div class="spinner"></div>
   <p>Chargement de l'article…</p>
 </div>
 
-<!-- ARTICLE -->
 <div id="articleWrap">
   <div id="coverWrap"></div>
 
@@ -255,7 +234,6 @@
     <div class="art-content" id="artContent"></div>
   </div>
 
-  <!-- PARTAGE -->
   <div class="share-bar">
     <span class="share-label">Partager :</span>
     <a id="shareWA" class="share-btn wa" target="_blank">💬 WhatsApp</a>
@@ -263,12 +241,10 @@
     <button class="share-btn" onclick="copyLink()">🔗 Copier le lien</button>
   </div>
 
-  <!-- RETOUR -->
   <div class="back-wrap">
     <a href="blog.html" class="back-btn">← Retour aux articles</a>
   </div>
 
-  <!-- ARTICLES SIMILAIRES -->
   <div class="related" id="relatedSection" style="display:none;">
     <h2 class="related-title">Articles similaires</h2>
     <div class="related-grid" id="relatedGrid"></div>
@@ -277,7 +253,6 @@
 
 <div class="sep"></div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Cyrille Ghislain <span>Tohouenou</span></div>
   <p class="footer-tag">Économiste · Expert International · Leader Politique</p>
@@ -326,7 +301,6 @@
     return Math.max(1, Math.ceil(words/200));
   }
 
-  // Extraire un extrait du contenu (150 caractères) pour la meta description
   function extractExcerpt(content, maxLength = 150) {
     const text = content.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     if (text.length <= maxLength) return text;
@@ -356,81 +330,101 @@
   }
 
   function render(art) {
-    // Mise à jour des balises SEO dynamiques
     const articleUrl = `https://cyrilletohouenou.com/article.html?id=${art.id}`;
     const excerpt = extractExcerpt(art.contenu || '', 155);
-    const imageUrl = art.imageUrl ? `https://cyrilletohouenou.com/${art.imageUrl}` : 'https://cyrilletohouenou.com/pha.jpg';
-    
-    // Titre de la page
+
+    // Gestion des images
+    const allImages = (art.images && art.images.length > 0) ? art.images : (art.imageUrl ? [art.imageUrl] : []);
+    const coverImage = allImages.length > 0 ? allImages[0] : null;
+    const galleryImages = allImages.length > 1 ? allImages.slice(1) : [];
+    const allVideos = (art.videos && art.videos.length > 0) ? art.videos : (art.videoUrl ? [art.videoUrl] : []);
+    const imageUrl = coverImage || 'https://cyrilletohouenou.com/pha.jpg';
+
+    // SEO
     document.title = `${art.titre} — Cyrille Ghislain Tohouenou`;
     document.getElementById('pageTitle').textContent = document.title;
-    
-    // Meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', excerpt);
-    
-    // Canonical
-    const canonical = document.getElementById('canonicalLink');
-    if (canonical) canonical.setAttribute('href', articleUrl);
-    
-    // Open Graph
+    document.getElementById('canonicalLink').setAttribute('href', articleUrl);
     document.getElementById('ogTitle').setAttribute('content', `${art.titre} — Cyrille Ghislain Tohouenou`);
     document.getElementById('ogDescription').setAttribute('content', excerpt);
     document.getElementById('ogImage').setAttribute('content', imageUrl);
     document.getElementById('ogUrl').setAttribute('content', articleUrl);
-    
-    // Twitter Card
     document.getElementById('twitterTitle').setAttribute('content', `${art.titre} — Cyrille Ghislain Tohouenou`);
     document.getElementById('twitterDesc').setAttribute('content', excerpt);
     document.getElementById('twitterImage').setAttribute('content', imageUrl);
-    
-    /* Cover */
+
+    // Cover
     const cw = document.getElementById('coverWrap');
-    cw.innerHTML = art.imageUrl
-      ? `<img class="art-cover" src="${art.imageUrl}" alt="${art.titre} — illustration" loading="lazy"/>`
+    cw.innerHTML = coverImage
+      ? `<img class="art-cover" src="${coverImage}" alt="${art.titre} — illustration" loading="lazy"/>`
       : `<div class="cover-placeholder">📰</div>`;
 
-    /* Fil d'Ariane & catégorie */
+    // Fil d'Ariane & catégorie
     document.getElementById('breadCat').textContent = art.categorie || 'Actualité';
     const badge = document.getElementById('artCatBadge');
     badge.textContent = art.categorie || 'Autre';
     badge.className   = 'art-cat-badge ' + catClass(art.categorie);
 
-    /* Titre, méta */
+    // Titre, méta
     document.getElementById('artTitle').textContent   = art.titre;
     document.getElementById('artDate').textContent    = fmtDate(art.date);
     document.getElementById('artAuthor').textContent  = art.auteur || 'Cyrille G. Tohouenou';
     document.getElementById('artReadTime').textContent = readTime(art.contenu);
 
-    /* Contenu */
+    // Contenu principal
     const contentDiv = document.getElementById('artContent');
-    if ((art.contenu||'').includes('<')) {
-      contentDiv.innerHTML = art.contenu;
-    } else {
-      contentDiv.innerHTML = '<p>' + (art.contenu||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>') + '</p>';
+    let inner = '';
+
+    // Vidéos d'abord
+    if (allVideos.length > 0) {
+      inner += allVideos.map((url, i) => {
+        if (url.includes('youtube.com/watch')) {
+          const videoId = new URL(url).searchParams.get('v');
+          return `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen style="margin-bottom:1.5rem;"></iframe>`;
+        } else if (url.includes('youtu.be')) {
+          const videoId = url.split('/').pop();
+          return `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen style="margin-bottom:1.5rem;"></iframe>`;
+        } else if (url.endsWith('.mp4')) {
+          return `<video controls style="width:100%; margin-bottom:1.5rem;"><source src="${url}" type="video/mp4"></video>`;
+        } else {
+          return `<p><a href="${url}" target="_blank" style="color:var(--royal);">🎬 Voir la vidéo ${i+1}</a></p>`;
+        }
+      }).join('');
     }
 
-    /* Partage WhatsApp avec le bon numéro */
+    // Contenu texte
+    if ((art.contenu||'').includes('<')) {
+      inner += art.contenu;
+    } else {
+      inner += '<p>' + (art.contenu||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>') + '</p>';
+    }
+
+    // Galerie des images supplémentaires (après le contenu)
+    if (galleryImages.length > 0) {
+      inner += `<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:0.8rem; margin-top:2rem;">
+        ${galleryImages.map(img => `<img src="${img}" alt="${art.titre}" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; border:1px solid var(--border); cursor:pointer;" loading="lazy" />`).join('')}
+      </div>`;
+    }
+
+    contentDiv.innerHTML = inner;
+
+    // Partage
     const whatsappUrl = `https://wa.me/2290167549826?text=${encodeURIComponent(art.titre + ' — ' + articleUrl)}`;
     document.getElementById('shareWA').href = whatsappUrl;
     document.getElementById('shareFB').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
 
-    /* Injection des données structurées JSON-LD */
+    // JSON-LD
     injectJsonLd(art, articleUrl, imageUrl, excerpt);
 
-    /* Afficher */
     document.getElementById('loadingWrap').style.display = 'none';
     document.getElementById('articleWrap').style.display = 'block';
   }
 
   function injectJsonLd(art, articleUrl, imageUrl, excerpt) {
-    // Supprimer les anciens scripts JSON-LD pour éviter les doublons
     const oldScripts = document.querySelectorAll('script[data-ld="article"]');
     oldScripts.forEach(s => s.remove());
-    
     const datePublished = art.date ? (art.date.toDate ? art.date.toDate().toISOString() : new Date(art.date).toISOString()) : new Date().toISOString();
-    const dateModified = datePublished;
-    
     const articleSchema = {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -438,26 +432,11 @@
       "description": excerpt,
       "image": imageUrl,
       "datePublished": datePublished,
-      "dateModified": dateModified,
-      "author": {
-        "@type": "Person",
-        "name": art.auteur || "Cyrille Ghislain Tohouenou",
-        "url": "https://cyrilletohouenou.com/about.html"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Cyrille Ghislain Tohouenou",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://cyrilletohouenou.com/pha.jpg"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": articleUrl
-      }
+      "dateModified": datePublished,
+      "author": { "@type": "Person", "name": art.auteur || "Cyrille Ghislain Tohouenou", "url": "https://cyrilletohouenou.com/about.html" },
+      "publisher": { "@type": "Organization", "name": "Cyrille Ghislain Tohouenou", "logo": { "@type": "ImageObject", "url": "https://cyrilletohouenou.com/pha.jpg" } },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl }
     };
-    
     const breadcrumbSchema = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -467,41 +446,30 @@
         { "@type": "ListItem", "position": 3, "name": art.titre, "item": articleUrl }
       ]
     };
-    
-    const script1 = document.createElement('script');
-    script1.type = 'application/ld+json';
-    script1.setAttribute('data-ld', 'article');
-    script1.textContent = JSON.stringify(articleSchema);
-    document.head.appendChild(script1);
-    
-    const script2 = document.createElement('script');
-    script2.type = 'application/ld+json';
-    script2.setAttribute('data-ld', 'breadcrumb');
-    script2.textContent = JSON.stringify(breadcrumbSchema);
-    document.head.appendChild(script2);
+    const s1 = document.createElement('script'); s1.type='application/ld+json'; s1.setAttribute('data-ld','article'); s1.textContent=JSON.stringify(articleSchema);
+    const s2 = document.createElement('script'); s2.type='application/ld+json'; s2.setAttribute('data-ld','breadcrumb'); s2.textContent=JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(s1); document.head.appendChild(s2);
   }
 
   async function loadRelated(cat, excludeId) {
     try {
-      const q = query(
-        collection(db,'articles'),
-        where('publie','==',true),
-        where('categorie','==',cat),
-        orderBy('date','desc'),
-        limit(4)
-      );
+      const q = query(collection(db,'articles'), where('publie','==',true), where('categorie','==',cat), orderBy('date','desc'), limit(4));
       const snap = await getDocs(q);
       const arts = snap.docs.map(d=>({id:d.id,...d.data()})).filter(a=>a.id!==excludeId).slice(0,3);
       if (!arts.length) return;
       const grid = document.getElementById('relatedGrid');
-      grid.innerHTML = arts.map(a=>`
+      grid.innerHTML = arts.map(a=>{
+        const firstImg = (a.images && a.images.length > 0) ? a.images[0] : (a.imageUrl || null);
+        const imgHtml = firstImg ? `<img src="${firstImg}" alt="${a.titre}" loading="lazy"/>` : `<div class="related-card-ph">📰</div>`;
+        return `
         <div class="related-card" onclick="location.href='article.html?id=${a.id}'">
-          ${a.imageUrl?`<img src="${a.imageUrl}" alt="${a.titre}" loading="lazy"/>`:`<div class="related-card-ph">📰</div>`}
+          ${imgHtml}
           <div class="related-card-body">
             <div class="related-card-title">${a.titre}</div>
             <div class="related-card-date">📅 ${fmtDate(a.date)}</div>
           </div>
-        </div>`).join('');
+        </div>`;
+      }).join('');
       document.getElementById('relatedSection').style.display = 'block';
     } catch(e) { console.error(e); }
   }
