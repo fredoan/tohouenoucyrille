@@ -27,7 +27,6 @@
   html { scroll-behavior:smooth; }
   body { font-family:'Montserrat',sans-serif; background:var(--off-white); color:var(--text-dark); overflow-x:hidden; }
 
-  /* ══ LOGIN ══ */
   #loginScreen {
     min-height:100vh; display:flex; align-items:center; justify-content:center;
     background:var(--royal-dark);
@@ -49,7 +48,6 @@
   .login-btn:hover { background:var(--royal-light); }
   .login-error { text-align:center; color:var(--danger); font-size:.76rem; margin-top:.8rem; display:none; }
 
-  /* ══ ADMIN LAYOUT ══ */
   #adminScreen { display:none; }
 
   .admin-top {
@@ -122,7 +120,6 @@
   .btn-remove:hover { background:#a31818; }
   .btn-add { background:var(--orange); color:var(--royal-dark); font-weight:700; padding:0.6rem 1.2rem; border:none; border-radius:4px; cursor:pointer; font-size:0.75rem; margin-top:0.3rem; }
   .btn-add:hover { background:var(--orange-vif); }
-  #imgPreview { width:100%; max-height:200px; object-fit:cover; display:none; margin-top:.8rem; border:1px solid var(--border); }
 
   /* Éditeur */
   .tabs { display:flex; }
@@ -146,18 +143,13 @@
     font-size:.9rem; line-height:1.9; color:var(--text-body);
     display:none;
   }
-  #previewPane h2 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--royal-dark); margin:1rem 0 .5rem; }
-  #previewPane h3 { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--royal); margin:.8rem 0 .4rem; }
-  #previewPane p  { margin-bottom:1rem; }
-  #previewPane blockquote { border-left:3px solid var(--orange); padding:.6rem 1rem; background:var(--off-white); margin:1rem 0; font-style:italic; }
 
   .actions { display:flex; gap:.7rem; margin-top:1.4rem; flex-wrap:wrap; }
-  .act-btn { padding:.82rem 1.6rem; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; transition:all .3s; display:inline-flex; align-items:center; gap:.4rem; }
-  .act-btn:disabled { opacity:.5; cursor:not-allowed; }
+  .act-btn { padding:.82rem 1.6rem; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; transition:all .3s; }
   .btn-publish { background:var(--royal); color:var(--white); flex:1; }
   .btn-publish:hover:not(:disabled) { background:var(--royal-light); }
   .btn-draft   { background:var(--off-white); color:var(--text-body); border:1.5px solid var(--border); flex:1; }
-  .btn-draft:hover:not(:disabled)   { background:var(--light-bg); border-color:var(--royal); }
+  .btn-draft:hover   { background:var(--light-bg); border-color:var(--royal); }
   .btn-reset   { background:transparent; color:var(--danger); border:1.5px solid rgba(185,28,28,.2); }
   .btn-reset:hover  { background:#fde8e8; }
   .form-msg { margin-top:.8rem; font-size:.76rem; display:none; padding:.6rem 1rem; }
@@ -165,11 +157,7 @@
   .form-msg.err { background:#fde8e8; color:var(--danger); border-left:3px solid var(--danger); }
 
   .art-list { display:flex; flex-direction:column; gap:.6rem; }
-  .art-item {
-    padding:1rem 1.2rem; border:1px solid var(--border);
-    background:var(--white); display:flex; align-items:center; gap:1rem;
-    transition:all .25s;
-  }
+  .art-item { padding:1rem 1.2rem; border:1px solid var(--border); background:var(--white); display:flex; align-items:center; gap:1rem; transition:all .25s; }
   .art-item:hover { border-color:rgba(26,58,143,.25); box-shadow:0 4px 16px rgba(26,58,143,.07); }
   .art-thumb { width:58px; height:58px; flex-shrink:0; background:var(--light-bg); display:flex; align-items:center; justify-content:center; font-size:1.6rem; overflow:hidden; }
   .art-thumb img { width:58px; height:58px; object-fit:cover; object-position:top; }
@@ -204,7 +192,7 @@
 </head>
 <body>
 
-<!-- ══ LOGIN ══ -->
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
     <div class="login-logo">CGT<span>.</span></div>
@@ -223,7 +211,7 @@
   </div>
 </div>
 
-<!-- ══ ADMIN ══ -->
+<!-- ADMIN -->
 <div id="adminScreen">
 
   <div class="admin-top">
@@ -236,7 +224,7 @@
 
   <div class="admin-body">
 
-    <!-- ─── COL GAUCHE : FORMULAIRE ─── -->
+    <!-- COLONNE GAUCHE : FORMULAIRE -->
     <div>
       <div class="card">
         <div class="card-header">
@@ -245,7 +233,6 @@
         </div>
         <div class="card-body">
 
-          <!-- Titre + Catégorie -->
           <div class="form-row">
             <div class="form-group">
               <label>Titre <span class="req">*</span></label>
@@ -264,7 +251,7 @@
             </div>
           </div>
 
-          <!-- PHOTOS (bloc dynamique) -->
+          <!-- PHOTOS -->
           <div class="dynamic-block">
             <div class="block-label">🖼️ Photos (URL) — optionnel</div>
             <div class="url-hint">
@@ -277,7 +264,7 @@
             <button type="button" class="btn-add" id="btnAddImage">➕ Ajouter une photo</button>
           </div>
 
-          <!-- VIDÉOS (bloc dynamique) -->
+          <!-- VIDÉOS -->
           <div class="dynamic-block">
             <div class="block-label">🎬 Vidéos (URL) — optionnel</div>
             <div class="url-hint">
@@ -287,7 +274,7 @@
             <button type="button" class="btn-add" id="btnAddVideo">➕ Ajouter une vidéo</button>
           </div>
 
-          <!-- Éditeur contenu -->
+          <!-- Contenu -->
           <div class="form-group">
             <label>Contenu <span class="req">*</span></label>
             <div class="tabs">
@@ -311,7 +298,6 @@
             <div id="previewPane"></div>
           </div>
 
-          <!-- Actions -->
           <div class="actions">
             <button class="act-btn btn-publish" id="btnPublish" onclick="saveArticle(true)">🚀 Publier</button>
             <button class="act-btn btn-draft"   id="btnDraft"   onclick="saveArticle(false)">💾 Brouillon</button>
@@ -323,7 +309,7 @@
       </div>
     </div>
 
-    <!-- ─── COL DROITE : STATS + LISTE ─── -->
+    <!-- COLONNE DROITE : STATS + LISTE -->
     <div style="display:flex;flex-direction:column;gap:1.5rem;">
 
       <div class="card">
@@ -416,14 +402,13 @@
     if (urls && urls.length > 0) {
       urls.forEach(url => createFn(url));
     }
-    // toujours une ligne vide si aucune
     if (!urls || urls.length === 0) createFn('');
   }
 
   document.getElementById('btnAddImage').addEventListener('click', () => createImageRow());
   document.getElementById('btnAddVideo').addEventListener('click', () => createVideoRow());
 
-  // Initialisation : une ligne vide au chargement
+  // Initialisation
   createImageRow();
   createVideoRow();
 
@@ -481,7 +466,7 @@
     try {
       const images = getArrayFromContainer('#imagesContainer', 'image-input');
       const videos = getArrayFromContainer('#videosContainer', 'video-input');
-      const imageUrl = images.length > 0 ? images[0] : null;  // rétrocompatibilité
+      const imageUrl = images.length > 0 ? images[0] : null;
       const videoUrl = videos.length > 0 ? videos[0] : null;
 
       const data = {
@@ -572,11 +557,9 @@
       document.getElementById('fCategorie').value   = a.categorie || '';
       document.getElementById('editorArea').innerHTML = a.contenu  || '';
 
-      // Images
       const urlsImg = (a.images && a.images.length > 0) ? a.images : (a.imageUrl ? [a.imageUrl] : []);
       clearAndFill('imagesContainer', urlsImg, createImageRow);
 
-      // Vidéos
       const urlsVid = (a.videos && a.videos.length > 0) ? a.videos : (a.videoUrl ? [a.videoUrl] : []);
       clearAndFill('videosContainer', urlsVid, createVideoRow);
 
@@ -586,7 +569,7 @@
     } catch(e) { console.error(e); }
   };
 
-  /* ─── TOGGLE PUBLIER / MASQUER ─── */
+  /* ─── TOGGLE PUBLIER ─── */
   window.togglePub = async (id, current) => {
     try {
       await updateDoc(doc(db,'articles',id), { publie:!current });
@@ -597,7 +580,7 @@
 
   /* ─── SUPPRIMER ─── */
   window.delArticle = async (id) => {
-    if (!confirm('Supprimer définitivement cet article ? Cette action est irréversible.')) return;
+    if (!confirm('Supprimer définitivement cet article ?')) return;
     try {
       await deleteDoc(doc(db,'articles',id));
       toast('🗑️ Article supprimé');
